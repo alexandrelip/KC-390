@@ -4,10 +4,9 @@
 --  Embraer KC-390 Millennium  -  APENAS IA  (add_aircraft)
 --  Usa o flight model SFM definido em KC-390_SFM.lua (global KC390_SFM).
 --
---  IMPORTANTE: as coordenadas de motor, trem de pouso, ponta de asa e
---  os argumentos de animacao (arg_*) precisam BATER com o modelo 3D
---  (.edm). Os valores abaixo sao estimativas com base nas dimensoes
---  reais e devem ser calibrados quando o .edm existir.
+--  Modelo 3D (.edm) + animacoes convertidos do FSX (FABv KC-390 v1.5)
+--  via ModelConverterX + 3ds Max + exportador EDM da ED.
+--  Args reais no EDM: 0,2,3,5,9,10,11,12,13,15,18,19,20,21,22,28,29,30,31,101,102,103
 -- =====================================================================
 
 KC_390 =
@@ -26,7 +25,6 @@ KC_390 =
             file        = "KC-390",
             life        = 25,                -- resistencia (barra de vida)
             vis         = 3,
-            desrt       = "KC-390_destr",    -- modelo destruido (opcional)
             fire        = { 360, 3 },        -- fogo no solo apos destruicao: 360s, 3m
             username    = "KC-390",
             index       = WSTYPE_PLACEHOLDER,
@@ -100,13 +98,13 @@ KC_390 =
     -- TREM DE POUSO (coordenadas estimadas - calibrar no .edm)
     -------------------------------------------------------------------
     tand_gear_max = 1.5,
-    nose_gear_pos = { 13.20, -3.80, 0.0 },
+    nose_gear_pos = { 10.80, -3.00, 0.0 },   -- calibrado pelas coords do modelo convertido
     nose_gear_amortizer_direct_stroke        =  0.0,
     nose_gear_amortizer_reversal_stroke      = -0.40,
     nose_gear_amortizer_normal_weight_stroke = -0.40,
     nose_gear_wheel_diameter                 =  0.90,
 
-    main_gear_pos = { -1.50, -3.90, 1.90 },
+    main_gear_pos = { -3.50, -3.00, 2.60 },  -- calibrado pelas coords do modelo convertido
     main_gear_amortizer_direct_stroke        =  0.0,
     main_gear_amortizer_reversal_stroke      = -0.40,
     main_gear_amortizer_normal_weight_stroke = -0.40,
@@ -181,12 +179,9 @@ add_aircraft(KC_390)
 --  (padrao DCS - o modelador deve nomear estes args no Blender/3ds Max)
 -- ---------------------------------------------------------------------
 --   0  : trem do nariz - retracao
---   1  : amortecedor do nariz
 --   2  : esterçamento da roda do nariz
 --   3  : trem principal direito - retracao
---   4  : amortecedor principal direito
 --   5  : trem principal esquerdo - retracao
---   6  : amortecedor principal esquerdo
 --   9  : aileron esquerdo
 --  10  : aileron direito
 --  11  : profundor (elevator)
@@ -202,8 +197,6 @@ add_aircraft(KC_390)
 --  29  : reversor de empuxo - motor 2
 --  30  : defletor esquerdo
 --  31  : defletor direito
---  38  : luzes de navegacao
---  39  : luzes de pouso (faroletes)
 -- 101  : rotacao roda do nariz
 -- 102  : rotacao roda principal direita
 -- 103  : rotacao roda principal esquerda
