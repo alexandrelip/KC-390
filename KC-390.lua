@@ -34,11 +34,11 @@ KC_390 =
     },
 
     -- Tipo de operacao de pista (CTOL = decolagem/pouso convencional)
-    takeoff_and_landing_type = 1,
+    takeoff_and_landing_type = "CTOL",
 
     mapclasskey = "P0091000064",
     attribute   = { wsType_Air, wsType_Airplane, wsType_Cruiser, WSTYPE_PLACEHOLDER,
-                    "Transports",
+                    "Transports", "Tankers", "Refuelable",
                   },
     Categories  = {},
 
@@ -97,6 +97,8 @@ KC_390 =
     -------------------------------------------------------------------
     -- TREM DE POUSO (coordenadas estimadas - calibrar no .edm)
     -------------------------------------------------------------------
+    undercarriage_transmission = "Hydraulic",
+    undercarriage_movement     = 2,
     tand_gear_max = 1.5,
     nose_gear_pos = { 10.80, -3.00, 0.0 },   -- calibrado pelas coords do modelo convertido
     nose_gear_amortizer_direct_stroke        =  0.0,
@@ -109,6 +111,28 @@ KC_390 =
     main_gear_amortizer_reversal_stroke      = -0.40,
     main_gear_amortizer_normal_weight_stroke = -0.40,
     main_gear_wheel_diameter                 =  1.20,
+
+    mechanimations =
+    {
+        CentralStrut =
+        {
+            { Transition = { "Retract", "Extend" }, Sequence = { { C = { { "Arg", 0, "to", 1.0, "in", 9.0 } } } }, Flags = { "Reversible" } },
+            { Transition = { "Extend", "Retract" }, Sequence = { { C = { { "Arg", 0, "to", 0.0, "in", 9.0 } } } }, Flags = { "Reversible", "StepsBackwards" } },
+            { Transition = { "Any", "Collapse" },   Sequence = { { C = { { "Arg", 0, "to", 0.5, "in", 2.0 } } } } },
+        },
+        RightStrut =
+        {
+            { Transition = { "Retract", "Extend" }, Sequence = { { C = { { "Arg", 3, "to", 1.0, "in", 10.0 } } } }, Flags = { "Reversible" } },
+            { Transition = { "Extend", "Retract" }, Sequence = { { C = { { "Arg", 3, "to", 0.0, "in", 10.0 } } } }, Flags = { "Reversible", "StepsBackwards" } },
+            { Transition = { "Any", "Collapse" },   Sequence = { { C = { { "Arg", 3, "to", 0.5, "in", 2.0 } } } } },
+        },
+        LeftStrut =
+        {
+            { Transition = { "Retract", "Extend" }, Sequence = { { C = { { "Arg", 5, "to", 1.0, "in", 10.0 } } } }, Flags = { "Reversible" } },
+            { Transition = { "Extend", "Retract" }, Sequence = { { C = { { "Arg", 5, "to", 0.0, "in", 10.0 } } } }, Flags = { "Reversible", "StepsBackwards" } },
+            { Transition = { "Any", "Collapse" },   Sequence = { { C = { { "Arg", 5, "to", 0.5, "in", 2.0 } } } } },
+        },
+    },
 
     -------------------------------------------------------------------
     -- BOCAIS DOS MOTORES (efeito de exaustao) - estimado
@@ -139,6 +163,13 @@ KC_390 =
     -- TRIPULACAO
     -------------------------------------------------------------------
     crew_size = 3,
+    crew_stations = "HumanOrchestra",
+    crew_members =
+    {
+        [1] = { ejection_seat_name = 0, drop_canopy_name = 0, pos = { 11.5, 1.2, -0.65 }, bailout_arg = -1, role = "pilot",   role_display_name = _("Pilot") },
+        [2] = { ejection_seat_name = 0, drop_canopy_name = 0, pos = { 11.5, 1.2,  0.65 }, bailout_arg = -1, role = "copilot", role_display_name = _("Copilot") },
+        [3] = { ejection_seat_name = 0, drop_canopy_name = 0, pos = { -8.0, 0.5,  0.00 }, bailout_arg = -1, role = "gunner",  role_display_name = _("Loadmaster") },
+    },
 
     -------------------------------------------------------------------
     -- SENSORES / DEFESA (o que a IA "enxerga")
@@ -163,8 +194,22 @@ KC_390 =
     -- REABASTECIMENTO EM VOO (KC-390 e tanker probe-and-drogue)
     -------------------------------------------------------------------
     is_tanker                 = true,
-    tanker_type               = 1,          -- PROBE_AND_DROGUE
+    tanker_type               = 0,          -- tanker com mangueira/cesta
+    refueling_points_count    = 2,
+    refueling_points =
+    {
+        [1] = { pos = { -18.0, -1.0, -12.0 }, clientType = 3 },
+        [2] = { pos = { -18.0, -1.0,  12.0 }, clientType = 3 },
+    },
     air_refuel_receptacle_pos = { 12.0, 1.5, 0.0 },
+
+    Pylons = {},
+    Tasks =
+    {
+        aircraft_task(Transport),
+        aircraft_task(Refueling),
+    },
+    DefaultTask = aircraft_task(Transport),
 
     -------------------------------------------------------------------
     -- FLIGHT MODEL (SFM definido em KC-390_SFM.lua)

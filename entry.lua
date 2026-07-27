@@ -16,7 +16,7 @@ declare_plugin(self_ID,
     displayName   = _("KC-390 Millennium"),
     shortName     = "KC-390",
     fileMenuName  = _("KC-390 Millennium"),
-    version       = "1.0.0",
+    version       = "1.1.0",
     state         = "installed",
     developerName = "FABv / VS Mod",
     info          = _("Embraer KC-390 Millennium - cargueiro/tanker a jato (IA), convertido com permissao do autor."),
@@ -26,6 +26,14 @@ declare_plugin(self_ID,
         {
             name = _("KC-390 Millennium"),
             dir  = "Liveries",
+        },
+    },
+
+    Missions =
+    {
+        {
+            name = _("KC-390 Millennium"),
+            dir  = "Missions",
         },
     },
 })
