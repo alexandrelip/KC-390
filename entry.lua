@@ -16,7 +16,7 @@ declare_plugin(self_ID,
     displayName   = _("KC-390 Millennium"),
     shortName     = "KC-390",
     fileMenuName  = _("KC-390 Millennium"),
-    version       = "1.1.0",
+    version       = "0.1",
     state         = "installed",
     developerName = "FABv / VS Mod",
     info          = _("Embraer KC-390 Millennium - cargueiro/tanker a jato (IA), convertido com permissao do autor."),
@@ -25,7 +25,7 @@ declare_plugin(self_ID,
     {
         {
             name = _("KC-390 Millennium"),
-            dir  = "Liveries",
+            dir  = "Theme",
         },
     },
 
@@ -41,6 +41,7 @@ declare_plugin(self_ID,
 -- Monta os caminhos virtuais do mod ------------------------------------
 mount_vfs_liveries_path (current_mod_path .. "/Liveries")
 mount_vfs_texture_path  (current_mod_path .. "/Textures")
+mount_vfs_texture_path  (current_mod_path .. "/Theme/ME")
 mount_vfs_model_path    (current_mod_path .. "/Shapes")
 
 -- Carrega o flight model (SFM) e depois a definicao da aeronave --------
