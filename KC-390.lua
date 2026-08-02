@@ -38,7 +38,7 @@ KC_390 =
 
     mapclasskey = "P0091000064",
     attribute   = { wsType_Air, wsType_Airplane, wsType_Cruiser, WSTYPE_PLACEHOLDER,
-                    "Transports", "Tankers", "Refuelable",
+                                        "Transports",
                   },
     Categories  = {},
 
@@ -190,26 +190,25 @@ KC_390 =
                    minFrequency = 225.0, maxFrequency = 399.975,
                    modulation = MODULATION_AM },
 
-    -------------------------------------------------------------------
-    -- REABASTECIMENTO EM VOO (KC-390 e tanker probe-and-drogue)
-    -------------------------------------------------------------------
-    is_tanker                 = true,
-    tanker_type               = 0,          -- tanker com mangueira/cesta
-    refueling_points_count    = 2,
-    refueling_points =
-    {
-        [1] = { pos = { -18.0, -1.0, -12.0 }, clientType = 3 },
-        [2] = { pos = { -18.0, -1.0,  12.0 }, clientType = 3 },
-    },
-    air_refuel_receptacle_pos = { 12.0, 1.5, 0.0 },
-
     Pylons = {},
     Tasks =
     {
         aircraft_task(Transport),
-        aircraft_task(Refueling),
     },
     DefaultTask = aircraft_task(Transport),
+    Countries   =
+    {
+        "Brazil",
+        "Portugal",
+        "Hungary",
+        "Czech Republic",
+        "Austria",
+        "The Netherlands",
+        "South Korea",
+        "Sweden",
+        "Greece",
+        "United Arab Emirates",
+    },
 
     -------------------------------------------------------------------
     -- FLIGHT MODEL (SFM definido em KC-390_SFM.lua)

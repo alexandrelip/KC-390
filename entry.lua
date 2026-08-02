@@ -19,7 +19,7 @@ declare_plugin(self_ID,
     version       = "0.1",
     state         = "installed",
     developerName = "FABv / VS Mod",
-    info          = _("Embraer KC-390 Millennium - cargueiro/tanker a jato (IA), convertido com permissao do autor."),
+    info          = _("Embraer KC-390 Millennium - aeronave de transporte a jato (IA), convertida com permissao do autor."),
 
     Skins =
     {
