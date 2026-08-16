@@ -13,6 +13,7 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 ### Licensing
 - **Lua systems** — freely usable in other **non-paid** DCS World modules
 - The original 3D model/textures are freeware from FABv / Vynicius "VS Mod" (MSFS); used here with the author's permission. Redistribution should preserve original credit.
+- ⚠️ **This is a closed/restricted license**: any modification, redistribution, or derivative work (model, textures, code or assets) **requires prior written permission from the group of contributors** listed below. Do not fork, repackage, or alter this mod without asking first.
 
 ---
 
@@ -60,10 +61,13 @@ This project is shared with the DCS World modding community under the following 
 
 - **Lua-based aircraft systems** — freely usable in other **non-paid** DCS World modules
 - The original 3D model and textures are based on the freeware MSFS **KC-390 "VS Mod"** by FABv / Vynicius, converted and adapted with the author's permission. Livery and texture contributions belong to their respective authors.
+- 🔒 **Permission required for changes**: this is a restricted license. **Any change, modification, or redistribution of this mod requires explicit prior permission from the contributor group** (see [Contributors](#-contributors)). Unauthorized forks/reuploads/edits are not permitted.
 
 ---
 
 **Português (resumo)**: Mod de IA (não pilotável) gratuito e open-source do Embraer KC-390 Millennium para DCS World. Modelo 3D convertido do mod freeware de MSFS "VS Mod" (FABv/Vynicius), com permissão do autor original. Flight Model em SFM (Lua), sem necessidade de DLL. Tarefas de IA: `Transport` e `Refueling` (reabastecedor com 2 pontos).
+
+⚠️ **Licença restrita**: qualquer alteração, modificação ou redistribuição deste mod (modelo, texturas, código ou demais assets) **exige permissão prévia do grupo de colaboradores** listado abaixo. Não é permitido fork, republicação ou edição sem autorização.
 
 ### 🤝 Colaboradores
 
