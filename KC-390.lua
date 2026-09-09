@@ -95,22 +95,22 @@ KC_390 =
     range           = 5000,     -- alcance aprox. com carga (km)
 
     -------------------------------------------------------------------
-    -- TREM DE POUSO (coordenadas estimadas - calibrar no .edm)
+    -- TREM DE POUSO (pontos de contato e diametros medidos no EDM)
     -------------------------------------------------------------------
     undercarriage_transmission = "Hydraulic",
     undercarriage_movement     = 2,
     tand_gear_max = 1.5,
-    nose_gear_pos = { 10.80, -3.00, 0.0 },   -- calibrado pelas coords do modelo convertido
+    nose_gear_pos = { 9.13, -4.36, 0.0 },
     nose_gear_amortizer_direct_stroke        =  0.0,
     nose_gear_amortizer_reversal_stroke      = -0.40,
-    nose_gear_amortizer_normal_weight_stroke = -0.40,
-    nose_gear_wheel_diameter                 =  0.90,
+    nose_gear_amortizer_normal_weight_stroke =  0.0,
+    nose_gear_wheel_diameter                 =  0.98,
 
-    main_gear_pos = { -3.50, -3.00, 2.60 },  -- calibrado pelas coords do modelo convertido
+    main_gear_pos = { -3.57, -4.44, 2.66 },
     main_gear_amortizer_direct_stroke        =  0.0,
     main_gear_amortizer_reversal_stroke      = -0.40,
-    main_gear_amortizer_normal_weight_stroke = -0.40,
-    main_gear_wheel_diameter                 =  1.20,
+    main_gear_amortizer_normal_weight_stroke =  0.0,
+    main_gear_wheel_diameter                 =  1.62,
 
     mechanimations =
     {
