@@ -9,7 +9,7 @@ No ModelViewer2:
 
 TREM DE POUSO
 0   trem do nariz: 0 recolhido, 1 baixado
-2   direcao da roda do nariz: -1 esquerda, 1 direita
+2   direcao da roda do nariz: -1 direita, 1 esquerda
 3   trem principal direito: 0 recolhido, 1 baixado
 5   trem principal esquerdo: 0 recolhido, 1 baixado
 101 rotacao da roda do nariz
