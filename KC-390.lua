@@ -216,12 +216,12 @@ KC_390 =
         "Portugal",
         "Hungary",
         "Czech Republic",
-        "Austria",
         "The Netherlands",
+        "Austria",
         "South Korea",
         "Sweden",
-        "Greece",
-        "United Arab Emirates",
+        "Slovakia",
+        "Lithuania",
     },
 
     -------------------------------------------------------------------
