@@ -21,7 +21,7 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 
 - AI-only transport aircraft (`add_aircraft`), no DLL required (SFM in Lua)
 - AI tasks: `Transport` and `Refueling` (2 tanker points)
-- Landing gear, control surfaces, ramp/doors and mirror animations (22 animation args)
+- Landing gear, control surfaces, ramp/doors, mirrors and animated refueling hoses/baskets (24 animation args)
 - Custom liveries (FAB Standard) and in-game theme (loading screen, ME icon, logo)
 - 4 LODs (0/8/20/50 km) with dedicated collision shell
 

@@ -6,7 +6,7 @@
 --
 --  Modelo 3D (.edm) + animacoes convertidos do FSX (FABv KC-390 v1.5)
 --  via ModelConverterX + 3ds Max + exportador EDM da ED.
---  Args reais no EDM: 0,2,3,5,9,10,11,12,13,15,18,19,20,21,22,28,29,30,31,101,102,103
+--  Args reais no EDM: 0,2,3,5,9,10,11,12,13,15,18,19,20,21,22,28,29,30,31,42,71,101,102,103
 -- =====================================================================
 
 KC_390 =
@@ -38,9 +38,9 @@ KC_390 =
 
     mapclasskey = "P0091000064",
     attribute   = { wsType_Air, wsType_Airplane, wsType_Cruiser, WSTYPE_PLACEHOLDER,
-                                        "Transports",
+                    "Transports", "Tankers", "Refuelable",
                   },
-    Categories  = {},
+    Categories  = { "{8A302789-A55D-4897-B647-66493FA6826F}", "Tanker" },
 
     -------------------------------------------------------------------
     -- MASSAS (kg) - dados reais Embraer
@@ -190,12 +190,26 @@ KC_390 =
                    minFrequency = 225.0, maxFrequency = 399.975,
                    modulation = MODULATION_AM },
 
+    -------------------------------------------------------------------
+    -- REABASTECIMENTO EM VOO (2 mangueiras/cestas sob as asas)
+    -------------------------------------------------------------------
+    singleInFlight          = true,
+    stores_number           = 0,
+    tanker_type             = 0,
+    is_tanker               = true,
+    refueling_points_count  = 2,
+    refueling_points =
+    {
+        [1] = { pos = { -31.64, -7.11, -14.04 }, clientType = 3 },
+        [2] = { pos = { -31.64, -7.11,  13.95 }, clientType = 3 },
+    },
     Pylons = {},
     Tasks =
     {
         aircraft_task(Transport),
+        aircraft_task(Refueling),
     },
-    DefaultTask = aircraft_task(Transport),
+    DefaultTask = aircraft_task(Refueling),
     Countries   =
     {
         "Brazil",
@@ -241,6 +255,8 @@ add_aircraft(KC_390)
 --  29  : reversor de empuxo - motor 2
 --  30  : defletor esquerdo
 --  31  : defletor direito
+--  42  : extensao da mangueira/cesta esquerda
+--  71  : extensao da mangueira/cesta direita
 -- 101  : rotacao roda do nariz
 -- 102  : rotacao roda principal direita
 -- 103  : rotacao roda principal esquerda
