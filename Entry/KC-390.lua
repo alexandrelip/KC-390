@@ -210,7 +210,7 @@ KC_390 =
         aircraft_task(Refueling),
     },
     DefaultTask = aircraft_task(Refueling),
-    Countries   =
+    --[[Countries   =
     {
         "Brazil",
         "Portugal",
@@ -222,7 +222,7 @@ KC_390 =
         "Sweden",
         "Slovakia",
         "Lithuania",
-    },
+    },]]--
 
     -------------------------------------------------------------------
     -- FLIGHT MODEL (SFM definido em KC-390_SFM.lua)

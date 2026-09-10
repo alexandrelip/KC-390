@@ -1,0 +1,86 @@
+KC-390
+KC-390.png
+KC-390
+
+ENGLISH
+
+Name: AT-27
+Type: Basic / Advanced Turboprop Trainer Aircraft
+
+General characteristics
+
+Crew:
+2 (student and instructor)
+
+Length:
+9.86 m (32 ft 4 in)
+
+Wingspan:
+11.14 m (36 ft 7 in)
+
+Height:
+3.40 m (11 ft 2 in) approx.
+
+Wing area:
+19.40 m² (208.8 ft²) approx.
+
+Empty weight:
+Approx. 1,810 kg (3,990 lb)
+
+Loaded weight:
+Approx. 2,550 kg (5,620 lb)
+
+Max. takeoff weight:
+Approx. 3,175 kg (7,000 lb)
+
+Powerplant:
+1 × Pratt & Whitney Canada PT6A-25 or PT6A-25C turboprop
+Power output: approx. 750 shp
+
+Performance
+
+Maximum speed:
+Approx. 448 km/h (242 knots, 278 mph)
+
+Cruise speed:
+Approx. 400 km/h (216 knots, 249 mph)
+
+Range:
+Approx. 1,900 km (1,025 nmi, 1,180 mi) with external tanks (depending on configuration)
+
+Endurance:
+Approx. 4–5 hours (depending on mission profile)
+
+Service ceiling:
+Approx. 9,000 m (29,500–30,000 ft)
+
+Rate of climb:
+Approx. 13–14 m/s (2,600–2,750 ft/min)
+
+Armament (armed versions)
+
+Guns:
+Some export/armed variants can carry gun pods with 7.62 mm or .50 cal machine guns; the standard EMB-312 is primarily a trainer.
+
+Hardpoints:
+Up to 4 underwing hardpoints (depending on version), capable of carrying:
+
+Rockets:
+Light rocket pods
+
+Bombs:
+Practice bombs or light bombs
+
+Other:
+Gun pods and external fuel tanks
+
+External payload:
+Limited, only a few hundred kilograms; not a dedicated attack aircraft.
+
+Description
+
+The Embraer EMB-312 Tucano is a turboprop basic and advanced training aircraft developed by Embraer in the late 1970s. It was designed primarily for military pilot training, offering good performance, low operating costs, and excellent handling characteristics.
+
+Unlike the A-29 Super Tucano, the EMB-312 is not optimized for combat. It lacks heavy armor, advanced sensors, and reinforced structures for attack missions. Some versions can carry light weapons for training or secondary roles, but its main role has always been as a trainer aircraft.
+
+The A-29 Super Tucano is a direct evolution of the EMB-312, featuring a more powerful engine, strengthened airframe, modern avionics, and true combat capability.
