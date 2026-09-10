@@ -1,52 +1,52 @@
 livery = {
-	{"kc-390_wing_spoiler B-C",	DIFFUSE			,	"kc-390_wing_spoiler_b-c_c", false};
-	{"kc-390_wing_spoiler A-D",	DIFFUSE			,	"kc-390_wing_spoiler_a-d_c", false};
-	{"kc-390_wing_slat",	DIFFUSE			,	"kc-390_wing_slat_c", false};
-	{"kc-390_wing_flap_a",	DIFFUSE			,	"kc-390_wing_flap_a_c", false};
-	{"kc-390_wing_flap_b",	DIFFUSE			,	"kc-390_wing_flap_b_c", false};
-	{"kc-390_wing",	DIFFUSE			,	"kc-390_wing_c", false};
-	{"kc-390_wing_aileron",	DIFFUSE			,	"kc-390_wing_aileron_c", false};
-	{"revo_tanque_1",	DIFFUSE			,	"revo_tanque_1_c", false};
-	{"revo_pod_1",	DIFFUSE			,	"revo_pod_1_c", false};
-	{"kc-390_ramp_estrut",	DIFFUSE			,	"kc-390_ramp_estrut_c", false};
-	{"oculos_vidro",	DIFFUSE			,	"sunscreenb", false};
-	{"crew",	DIFFUSE			,	"soutear", false};
-	{"iae_metal",	DIFFUSE			,	"kc-390_iae_turbinmetal_c", false};
-	{"iae",	DIFFUSE			,	"kc-390_iae_turbine_c", false};
-	{"kc-390_HUD_glass",	DIFFUSE			,	"ppehud390", false};
-	{"kc-390_HUD_glass",	SELF_ILLUMINATION	,	"ppehud390_n", false};
-	{"kc-390_elevator",	DIFFUSE			,	"kc-390_elevator_c", false};
-	{"kc-390_horiz_stabiliser",	DIFFUSE			,	"kc-390_horiz_stabiliser_c", false};
-	{"kc-390_gear_ld",	DIFFUSE			,	"kc-390_gear_ld_c", false};
-	{"kc-390_gear_nose",	DIFFUSE			,	"kc-390_gear_nose_c", false};
-	{"kc-390_gear_le",	DIFFUSE			,	"kc-390_gear_le_c", false};
-	{"kc-390_fuselage g",	DIFFUSE			,	"kc-390_fuselage_g_c", false};
-	{"kc-390_fuselage f2",	DIFFUSE			,	"kc-390_fuselage_f2_c", false};
-	{"kc390_light_form",	DIFFUSE			,	"form", false};
-	{"kc390_light_form",	SELF_ILLUMINATION	,	"form", false};
-	{"kc-390_fuselage a5",	DIFFUSE			,	"kc-390_fuselage_a5_c", false};
-	{"kc-390_fuselage a4",	DIFFUSE			,	"kc-390_fuselage_a4_c", false};
-	{"kc-390_fuselage a3",	DIFFUSE			,	"kc-390_fuselage_a3_c", false};
-	{"kc-390_fuselage a2",	DIFFUSE			,	"kc-390_fuselage_a2_c", false};
-	{"kc-390_IAE novo",	DIFFUSE			,	"airbus_ex_baremetalgloss_iae_c", false};
-	{"kc-390_flightdeck_3",	DIFFUSE			,	"kc-390_flightdeck_3_c", false};
-	{"kc-390_flightdeck_2",	DIFFUSE			,	"kc-390_flightdeck_2_c", false};
-	{"iae_suporte",	DIFFUSE			,	"kc-390_iae_suporte_c", false};
-	{"kc-390_fusel_estrut2",	DIFFUSE			,	"kc-390_ramp_estrut_c", false};
-	{"kc-390_fuselage f",	DIFFUSE			,	"kc-390_fuselage_f_c", false};
-	{"kc-390_glass",	DIFFUSE			,	"glass_s", false};
-	{"kc-390_flightdeck_1",	DIFFUSE			,	"kc-390_flightdeck_1_c", false};
-	{"kc-390_cargo_1",	DIFFUSE			,	"kc-390_cargo_1_c", false};
-	{"kc-390_cargo_2",	DIFFUSE			,	"kc-390_cargo_2_c", false};
-	{"kc-390_blast deflector",	DIFFUSE			,	"kc-390_blast_deflector_c", false};
-	{"kc-390_fusel_estrut",	DIFFUSE			,	"kc-390_fusel_estrut_c", false};
-	{"kc-390_fuselage a1",	DIFFUSE			,	"kc-390_fuselage_a1_c", false};
-	{"kc-390_glass_gold",	DIFFUSE			,	"gold_t", false};
-	{"kc-390_fuselage b",	DIFFUSE			,	"kc-390_fuselage_b_c", false};
+	{"kc-390_wing_spoiler B-C",	DIFFUSE			,	"kc-390_wing_spoiler_b-c_c", true};
+	{"kc-390_wing_spoiler A-D",	DIFFUSE			,	"kc-390_wing_spoiler_a-d_c", true};
+	{"kc-390_wing_slat",	DIFFUSE			,	"kc-390_wing_slat_c", true};
+	{"kc-390_wing_flap_a",	DIFFUSE			,	"kc-390_wing_flap_a_c", true};
+	{"kc-390_wing_flap_b",	DIFFUSE			,	"kc-390_wing_flap_b_c", true};
+	{"kc-390_wing",	DIFFUSE			,	"kc-390_wing_c", true};
+	{"kc-390_wing_aileron",	DIFFUSE			,	"kc-390_wing_aileron_c", true};
+	{"revo_tanque_1",	DIFFUSE			,	"revo_tanque_1_c", true};
+	{"revo_pod_1",	DIFFUSE			,	"revo_pod_1_c", true};
+	{"kc-390_ramp_estrut",	DIFFUSE			,	"kc-390_ramp_estrut_c", true};
+	{"oculos_vidro",	DIFFUSE			,	"sunscreenb", true};
+	{"crew",	DIFFUSE			,	"soutear", true};
+	{"iae_metal",	DIFFUSE			,	"kc-390_iae_turbinmetal_c", true};
+	{"iae",	DIFFUSE			,	"kc-390_iae_turbine_c", true};
+	{"kc-390_HUD_glass",	DIFFUSE			,	"ppehud390", true};
+	{"kc-390_HUD_glass",	SELF_ILLUMINATION	,	"ppehud390_n", true};
+	{"kc-390_elevator",	DIFFUSE			,	"kc-390_elevator_c", true};
+	{"kc-390_horiz_stabiliser",	DIFFUSE			,	"kc-390_horiz_stabiliser_c", true};
+	{"kc-390_gear_ld",	DIFFUSE			,	"kc-390_gear_ld_c", true};
+	{"kc-390_gear_nose",	DIFFUSE			,	"kc-390_gear_nose_c", true};
+	{"kc-390_gear_le",	DIFFUSE			,	"kc-390_gear_le_c", true};
+	{"kc-390_fuselage g",	DIFFUSE			,	"kc-390_fuselage_g_c", true};
+	{"kc-390_fuselage f2",	DIFFUSE			,	"kc-390_fuselage_f2_c", true};
+	{"kc390_light_form",	DIFFUSE			,	"form", true};
+	{"kc390_light_form",	SELF_ILLUMINATION	,	"form", true};
+	{"kc-390_fuselage a5",	DIFFUSE			,	"kc-390_fuselage_a5_c", true};
+	{"kc-390_fuselage a4",	DIFFUSE			,	"kc-390_fuselage_a4_c", true};
+	{"kc-390_fuselage a3",	DIFFUSE			,	"kc-390_fuselage_a3_c", true};
+	{"kc-390_fuselage a2",	DIFFUSE			,	"kc-390_fuselage_a2_c", true};
+	{"kc-390_IAE novo",	DIFFUSE			,	"airbus_ex_baremetalgloss_iae_c", true};
+	{"kc-390_flightdeck_3",	DIFFUSE			,	"kc-390_flightdeck_3_c", true};
+	{"kc-390_flightdeck_2",	DIFFUSE			,	"kc-390_flightdeck_2_c", true};
+	{"iae_suporte",	DIFFUSE			,	"kc-390_iae_suporte_c", true};
+	{"kc-390_fusel_estrut2",	DIFFUSE			,	"kc-390_ramp_estrut_c", true};
+	{"kc-390_fuselage f",	DIFFUSE			,	"kc-390_fuselage_f_c", true};
+	{"kc-390_glass",	DIFFUSE			,	"glass_s", true};
+	{"kc-390_flightdeck_1",	DIFFUSE			,	"kc-390_flightdeck_1_c", true};
+	{"kc-390_cargo_1",	DIFFUSE			,	"kc-390_cargo_1_c", true};
+	{"kc-390_cargo_2",	DIFFUSE			,	"kc-390_cargo_2_c", true};
+	{"kc-390_blast deflector",	DIFFUSE			,	"kc-390_blast_deflector_c", true};
+	{"kc-390_fusel_estrut",	DIFFUSE			,	"kc-390_fusel_estrut_c", true};
+	{"kc-390_fuselage a1",	DIFFUSE			,	"kc-390_fuselage_a1_c", true};
+	{"kc-390_glass_gold",	DIFFUSE			,	"gold_t", true};
+	{"kc-390_fuselage b",	DIFFUSE			,	"kc-390_fuselage_b_c", true};
 }
 
 name = _("FAB 2852 - Forca Aerea Brasileira")
-countries = { "BRA" }
+countries = { }
 custom_args = {
 }
 
