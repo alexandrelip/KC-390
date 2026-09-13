@@ -6,7 +6,7 @@
 --
 --  Modelo 3D (.edm) + animacoes convertidos do FSX (FABv KC-390 v1.5)
 --  via ModelConverterX + 3ds Max + exportador EDM da ED.
---  Args reais no EDM: 0,2,3,5,9,10,11,12,13,15,18,19,20,21,22,28,29,30,31,42,71,101,102,103
+--  Args reais no EDM: 0,2,3,5,9,10,11,12,13,15,18,19,20,28,29,30,31,42,71,101,102,103,407,408
 -- =====================================================================
 
 KC_390 =
@@ -23,7 +23,7 @@ KC_390 =
     {
         {
             file        = "KC-390",
-            life        = 25,                -- resistencia (barra de vida)
+            life        = 45,                -- resistencia (barra de vida)
             vis         = 3,
             fire        = { 360, 3 },        -- fogo no solo apos destruicao: 360s, 3m
             username    = "KC-390",
@@ -32,6 +32,56 @@ KC_390 =
             positioning = "BYNORMAL",
         },
     },
+
+    Damage = verbose_to_dmg_properties({
+        ["NOSE_CENTER"]         = { critical_damage = 20 },
+        ["COCKPIT"]             = { critical_damage = 20 },
+        ["FUSELAGE_LEFT_SIDE"]  = { critical_damage = 20 },
+        ["FUSELAGE_RIGHT_SIDE"] = { critical_damage = 20 },
+        ["ENGINE_L"]            = { critical_damage = 3 },
+        ["ENGINE_R"]            = { critical_damage = 3 },
+        ["WING_L_IN"]           = { critical_damage = 25, deps_cells = { "WING_L_CENTER", "FLAP_L_IN", "ENGINE_L" } },
+        ["WING_R_IN"]           = { critical_damage = 25, deps_cells = { "WING_R_CENTER", "FLAP_R_IN", "ENGINE_R" } },
+        ["WING_L_CENTER"]       = { critical_damage = 20, deps_cells = { "WING_L_OUT", "FLAP_L_OUT" } },
+        ["WING_R_CENTER"]       = { critical_damage = 20, deps_cells = { "WING_R_OUT", "FLAP_R_OUT" } },
+        ["WING_L_OUT"]          = { critical_damage = 8, deps_cells = { "AILERON_L" } },
+        ["WING_R_OUT"]          = { critical_damage = 8, deps_cells = { "AILERON_R" } },
+        ["AILERON_L"]           = { critical_damage = 3 },
+        ["AILERON_R"]           = { critical_damage = 3 },
+        ["FLAP_L_IN"]           = { critical_damage = 3 },
+        ["FLAP_R_IN"]           = { critical_damage = 3 },
+        ["FLAP_L_OUT"]          = { critical_damage = 4 },
+        ["FLAP_R_OUT"]          = { critical_damage = 4 },
+        ["TAIL"]                = { critical_damage = 20, deps_cells = { "STABILIZER_L_OUT", "STABILIZER_R_OUT", "RUDDER" } },
+        ["TAIL_LEFT_SIDE"]      = { critical_damage = 5 },
+        ["TAIL_RIGHT_SIDE"]     = { critical_damage = 5 },
+        ["TAIL_BOTTOM"]         = { critical_damage = 5 },
+        ["STABILIZER_L_OUT"]    = { critical_damage = 25, deps_cells = { "ELEVATOR_L" } },
+        ["STABILIZER_R_OUT"]    = { critical_damage = 25, deps_cells = { "ELEVATOR_R" } },
+        ["ELEVATOR_L"]          = { critical_damage = 5 },
+        ["ELEVATOR_R"]          = { critical_damage = 5 },
+        ["RUDDER"]              = { critical_damage = 5 },
+        ["WHEEL_F"]             = { critical_damage = 3 },
+        ["WHEEL_L"]             = { critical_damage = 3 },
+        ["WHEEL_R"]             = { critical_damage = 3 },
+    }),
+
+    fires_pos =
+    {
+        [1]  = { -2.0,  0.0,   0.0 },
+        [2]  = { -1.0,  1.0,   3.5 },
+        [3]  = { -1.0,  1.0,  -3.5 },
+        [4]  = { -3.0,  1.0,   9.0 },
+        [5]  = { -3.0,  1.0,  -9.0 },
+        [6]  = { -7.0,  0.8,  15.0 },
+        [7]  = { -7.0,  0.8, -15.0 },
+        [8]  = {  2.0, -0.5,   5.6 },
+        [9]  = {  2.0, -0.5,  -5.6 },
+        [10] = { -0.5, -0.5,   5.6 },
+        [11] = { -0.5, -0.5,  -5.6 },
+    },
+
+    net_animation = { 0, 2, 3, 5, 9, 10, 11, 12, 13, 15, 18, 19, 20, 28, 29, 30, 31, 42, 71, 101, 102, 103, 407, 408 },
 
     -- Tipo de operacao de pista (CTOL = decolagem/pouso convencional)
     takeoff_and_landing_type = "CTOL",
@@ -70,6 +120,7 @@ KC_390 =
     thrust_sum_max = 28430,
     thrust_sum_ab  = 28430,
     engines_count  = 2,
+    propellorShapeType = "1ARG_2PHASE",
 
     RCS                  = 90,
     IR_emission_coeff    = 1.0,
@@ -174,7 +225,7 @@ KC_390 =
     -------------------------------------------------------------------
     -- SENSORES / DEFESA (o que a IA "enxerga")
     -------------------------------------------------------------------
-    detection_range_max  = 0,
+    detection_range_max  = 80,
     radar_can_see_ground = false,
     CanopyGeometry =
     {
@@ -183,8 +234,21 @@ KC_390 =
     },
     Sensors =
     {
-        OPTIC = { "TADS DVO" },
         RWR   = "Abstract RWR",
+    },
+    passivCounterm =
+    {
+        CMDS_Edit = true,
+        SingleChargeTotal = 120,
+        chaff = { default = 60, increment = 30, chargeSz = 1 },
+        flare = { default = 60, increment = 30, chargeSz = 1 },
+    },
+    chaff_flare_dispenser =
+    {
+        [1] = { pos = { -4.0, -2.0, -2.2 }, dir = { 0.0, -0.707107, -0.707107 } },
+        [2] = { pos = { -4.0, -2.0,  2.2 }, dir = { 0.0, -0.707107,  0.707107 } },
+        [3] = { pos = { -10.0, -1.8, -2.0 }, dir = { 0.0, -0.707107, -0.707107 } },
+        [4] = { pos = { -10.0, -1.8,  2.0 }, dir = { 0.0, -0.707107,  0.707107 } },
     },
     HumanRadio = { frequency = 251.0, editable = true,
                    minFrequency = 225.0, maxFrequency = 399.975,

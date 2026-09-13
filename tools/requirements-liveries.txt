@@ -1,0 +1,4 @@
+Pillow==12.3.0
+numpy==2.5.3
+scipy==1.18.1
+PyMuPDF==1.28.0

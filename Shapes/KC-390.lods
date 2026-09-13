@@ -8,5 +8,5 @@ model =
 		{"KC-390_lod02.edm", 20000.000000};   -- LOD longa distancia
 		{"KC-390_lod03.edm", 50000.000000};   -- LOD silhueta (bem longe)
 	};
-	collision_shell = "KC-390.edm";
+	collision_shell = "KC-390_collision.edm";
 }
