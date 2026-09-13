@@ -9,6 +9,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+$useRendering = $Render -or $Scenario -eq 'Fans'
 $root = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $lua = Join-Path $DcsRoot 'bin\luae.exe'
 & $lua (Join-Path $PSScriptRoot 'check_ai.lua') $root
@@ -44,7 +45,7 @@ try {
     New-Item -ItemType Junction -Path $modLink -Target $root | Out-Null
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     [System.IO.Compression.ZipFile]::ExtractToDirectory((Join-Path $root ('Missions\QuickStart\' + $missionName)), (Join-Path $work 'staged'))
-    $renderMode = if ($Render) { 'Render' } else { 'Headless' }
+    $renderMode = if ($useRendering) { 'Render' } else { 'Headless' }
     & $lua (Join-Path $PSScriptRoot 'prepare_ai_test.lua') $work $testProfile $Scenario $renderMode
     if ($LASTEXITCODE -ne 0) { throw 'Mission generation failed.' }
     $testMission = Join-Path $work 'AI-validation.miz'
@@ -53,7 +54,7 @@ try {
     $startInfo.FileName = Join-Path $DcsRoot 'bin\DCS.exe'
     $startInfo.WorkingDirectory = $DcsRoot
     $startInfo.UseShellExecute = $false
-    $renderArgument = if ($Render) { '' } else { ' --norender' }
+    $renderArgument = if ($useRendering) { '' } else { ' --norender' }
     $startInfo.Arguments = '-w ' + $profileName + $renderArgument + ' --force_disable_VR --mission "' + $testMission + '"'
     $process = [System.Diagnostics.Process]::Start($startInfo)
     Write-Output ('Isolated DCS PID={0}; mode={1}; existing sessions untouched={2}' -f $process.Id, $renderMode, ($existing.Id -join ','))
