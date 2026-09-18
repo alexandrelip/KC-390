@@ -1,0 +1,1204 @@
+{
+  "parts": {
+    "kc-390_fuselage_a1_c": {
+      "source_sha256": "a6ceb97bd9f9e696d3c63fbe304aef66177d65b007a5f3785a362d9c518ffb1a",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_a1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "e3975ecc107885a63bc5e27ca9df355178c7b38fb904e6b1a6610c3cf1b27a52"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_a1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "6b198e1dd7839216e88d71e67c534a5ffd8cef02c552f8f5bd51ec5a666bc75e"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_a1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "fdec11efb61e503fe2852c6a176a831a4f9443bf3952b5c4bf5033f8658d70f1"
+        }
+      }
+    },
+    "glass_s": {
+      "source_sha256": "1d073f4100e2a4c886309be6671655aeb1cef67dc1956ad2fd1eff3fe3ef59c1",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_glass_s_colour",
+          "width": 256,
+          "height": 256,
+          "mipmaps": 9,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 87556,
+          "sha256": "2a64f94149be4711a122552dfd5b03edcd343054bfeafcdfa8ab6f88774c5628"
+        },
+        "normal": {
+          "texture": "kc390_fab_glass_s_normal",
+          "width": 4,
+          "height": 4,
+          "mipmaps": 3,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 196,
+          "sha256": "f1cdf8ddfec0b1940231a68432a33fbf2adba84d43cc2fbd5d90d33c633716f5"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_glass_s_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5e1479ed8c5ecf35ec084b4965b861b33c5f1f50301549df4ae07eb82f64b08d"
+        }
+      }
+    },
+    "gold_t": {
+      "source_sha256": "28733ef1f079b36730827dd263598ec416e34db47110e973cff39bbd7cc90f18",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_gold_t_colour",
+          "width": 256,
+          "height": 256,
+          "mipmaps": 9,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 87556,
+          "sha256": "e3ffd138f87061d1b8bb98d55f1d7f387a65529b9c8dc8b8c6bc69bcbcb594de"
+        },
+        "normal": {
+          "texture": "kc390_fab_gold_t_normal",
+          "width": 4,
+          "height": 4,
+          "mipmaps": 3,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 196,
+          "sha256": "f1cdf8ddfec0b1940231a68432a33fbf2adba84d43cc2fbd5d90d33c633716f5"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_gold_t_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5e1479ed8c5ecf35ec084b4965b861b33c5f1f50301549df4ae07eb82f64b08d"
+        }
+      }
+    },
+    "kc-390_fuselage_a4_c": {
+      "source_sha256": "832968db77713c51b7e967ea1e1e0fc1840e38e68d1662d77c18d79f41064e4b",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_a4_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "7c1625e4a0557ca96616555800f3df8029d545ec5b2df5a4a66e04a607c398ea"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_a4_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "088a323a51ca474ca0f9e3c739dc9d2c1d539cce8bd280533474c229b9e13eb2"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_a4_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "670a2fcf7f817727422d10e779491389196af55eb1d612973abc3c9d5048ff0a"
+        }
+      }
+    },
+    "kc-390_fuselage_a5_c": {
+      "source_sha256": "94e0badf13a5bff00dfecde1c2806ad5cb4f81bdfb426516840cf8993ae8a676",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_a5_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "5710134c76945a5872e324aa0b3a48c0cdd4013b0aa9c53a1fb4c48da2135f83"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_a5_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "cbc45a80bcc1ae9a1dc3600a85e0a9cec5e7baca367be78abb17b0ea9bddb399"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_a5_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "59ee8c710e7a7b159be3a543af4a516146cf783a4a7bcc053aa6d9f15dd3fab1"
+        }
+      }
+    },
+    "kc-390_wing_c": {
+      "source_sha256": "ebd3f34dbbed414f9f0797d595c1f22c7240d722dacef984c8dc4aa4641e4f34",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "dd2a9aac84053c05037258d70a4a1425ce1954a49dcebe4bfefe5f4a47289f51"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "d8b176fae79e99304bae93720f1da8e711abaaa57ab5514ee0266c08179c5183"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "a4d9992ff4d441d31410f5f3d3c47c794b1a9c7d49ae103eec1d3c1419f46751"
+        }
+      }
+    },
+    "airbus_ex_baremetalgloss_iae_c": {
+      "source_sha256": "55252de6cd5c6372f3b4413a913a0dbdc0105b92721193c0a01e44b33c925cf6",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_airbus_ex_baremetalgloss_iae_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "13b17996b67d1f2490fb8ca212a30a22b2e05712f8dff6d557b912a0ae7298a1"
+        },
+        "normal": {
+          "texture": "kc390_fab_airbus_ex_baremetalgloss_iae_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "5fa6f735d489cf10f92eb04984116ee2ba52104eb80508d7810826c0f91024cc"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_airbus_ex_baremetalgloss_iae_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "8c2a4ff82bbdb9c595b1a6e6a47feaf6870363a139b74e5d89e3785d69d6b82f"
+        }
+      }
+    },
+    "kc-390_blast_deflector_c": {
+      "source_sha256": "e68940a0ead787bc6ac345b7b3800ccfb6d201918b4b9da74ca7e2284ca3e41e",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_blast_deflector_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "fa825200f88cf6ef379eaaeb44d1d8054979341e24c4b547bc861f4dc5aba71a"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_blast_deflector_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "fef7af3b0620555cacc5c5dd962ad5c7fbd01523774e28e6f118be81253ab32c"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_blast_deflector_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "a545de18d9961d2eb751fa5dc1237d0841b47e1253379c3b22d8e96a6e398f91"
+        }
+      }
+    },
+    "kc-390_elevator_c": {
+      "source_sha256": "90db6a76b6df85f83916d3c4fca683869bfc04e43d2239eddb37ad16d511eb21",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_elevator_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "0aa8d1ebafca13501b4fbf424336358f09121d26af6210228a28b583246b5ba0"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_elevator_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "2f162d137f48409b87be794d0a9057e5c9105c51ea9a3bf50192cd84da74fb96"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_elevator_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "fce2bbaf9f8dc4ff045ef10d32e7e26931eacf78be7286202c9c39f2b8eca291"
+        }
+      }
+    },
+    "kc-390_fusel_estrut_c": {
+      "source_sha256": "073fb990533c9464c85a8475ffb71e64342788120219a2a11594af34f6b38190",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fusel_estrut_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "f1d46590af024c3622bb26a977fb383da4bad1c45033174c9fd33a99054c7398"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fusel_estrut_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "f499470099c0865f3bb6b99c5b5fedb7ab316968275e38be81073b9d1708d715"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fusel_estrut_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "acfa5808d227f089a4aa282173f7c3edad4808e978b8ab0a8a4415fa5ca6930b"
+        }
+      }
+    },
+    "kc-390_fuselage_a2_c": {
+      "source_sha256": "24d4ca5aa0496cdc7502ca6aa30950c51d52fc1827228e08db4574354f8e53a5",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_a2_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "cff75e70e52015c0ee3470001ad7105ae287f58d4b8f4ff55850e5c2c24db246"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_a2_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "4555c9fc657a5e5285884e56d3debe3176f0aff8ec901739cd224deafd3f96f5"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_a2_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "bf431319f60c74a79e33477889ba3730d0323df35aa84d6da1436ac2736903a1"
+        }
+      }
+    },
+    "kc-390_fuselage_a3_c": {
+      "source_sha256": "747a56b2812918cf7f2be2e099fab868054762303025cd1ccb3e21f8e3b81c72",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_a3_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "db12a06f9f0566588b9e9bc0689f81ce6369ab918434033f15e679e740387874"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_a3_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "bbff543303efc91ccf32f48621054cc236ee91a7e38540215211b6b5dbbccb46"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_a3_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "e80d032a2bb6137dc46194f09a1975b28b55421136c9fe0aff00334eea05ff81"
+        }
+      }
+    },
+    "kc-390_fuselage_b_c": {
+      "source_sha256": "cf5125577d3d313cec6268179ecd63a5c405dbde56c0ba5a177238ee2a014369",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_b_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "3ade3f3d8ad881fd93cd64649e77818dd9e6f42c012578937afb2b637b6ce6cf"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_b_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "908e194fb20ae33a7a3037b7f42275fa69b268f84ad0b45b8936b615ec41cf38"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_b_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "da51a4beba20929674191044a9b447e194804226f4358b979af5e0cef20a9d40"
+        }
+      }
+    },
+    "kc-390_fuselage_f2_c": {
+      "source_sha256": "920578d747980ddfd71ef279f0e4bd4afe06ab3ee39d4f2ccb6bcbd22432bf6c",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_f2_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "0e7ab68431d0963a73de58ab5b5a8e092b1cfbab662159226cd71fc65c70a17e"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_f2_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "a36f9ac06290362c99d07883fd3f21e3b12c89e15822568dc6979bb979cca3dd"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_f2_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "9cd02f58858a0d0a479ab92e23efdc5bf7ff86e6878493239582d6ec2154a058"
+        }
+      }
+    },
+    "kc-390_fuselage_f_c": {
+      "source_sha256": "9ef173dbbbe47437ec7184b056fcb1717d9edc2dae33f384c4c325eacbe8ad8d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_f_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "b23de2269330681948e700b1ea30718439f9b353c1087ef12d4a7359128b1ac3"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_f_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "77e7320624401013c96c2aa64d3f79313ff83a3fb6e2bfa528a5b282271045c8"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_f_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "6fbc14b1a6e1a6c54a8aaa10c20c06626fb7954a00e89eb34bf3e9ef69289d49"
+        }
+      }
+    },
+    "kc-390_fuselage_g_c": {
+      "source_sha256": "08bebbe58fd4699b3b037f65ea41c92d2c11fe075bceae3360e5fde9e737c82c",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_fuselage_g_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "9ae501a3145c526268e2ef3b6094fa73da8c305e05ecb60d0a1b77b9c8d3da6d"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_fuselage_g_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "cb958b219f64abb82f1bea854178c91b69e23d4ac2a7a46a9eb69c44afb17bcd"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_fuselage_g_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "9d2b293bc42ed4f0cc59bbc97173ecb58f570e7ea5d66c7f5f4b453426a349a8"
+        }
+      }
+    },
+    "kc-390_gear_ld_c": {
+      "source_sha256": "b4b3d0e8461321f58f1370817ef06370d4aa86c78e7865b159cb8cfee73e3b0d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_gear_ld_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "b5292d2411c1236b409dea106ccb89bb770d5478f9dc7f25b8fc0e8c2afaef21"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_gear_ld_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "07e4ba0bdd52c6be031827bf93dacc192a3b892e3b1b5c2e202a4bf7ba5d272f"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_gear_ld_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "181a382e006038416c6dd3212e90b62164e65774ca9a784d057e1286bf86b603"
+        }
+      }
+    },
+    "kc-390_gear_le_c": {
+      "source_sha256": "ff446e47f9c910b5e5290045edf8fc1f0fd20013395b45bbbbf59d6de6ed05f9",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_gear_le_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "01709143809cf3416067ffb0228b12f3e2a87ddd5f4eed73669f03bd890567c2"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_gear_le_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "2750842d1df109f0b30b23c66866fab37a8862f1933a3aee596ac5cf483760f5"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_gear_le_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d07895b5ac9fe05844008b386ee558451610f77334746b31a89c5beabbb95326"
+        }
+      }
+    },
+    "kc-390_gear_nose_c": {
+      "source_sha256": "17f037460f41a163145b68ecf76c34ea04c9c6722fead660e77cc2b4a81ed816",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_gear_nose_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "f3473f66d4136dd8b5ff90afd09c814c4cc25243406c85c0036bc8fe391c38e6"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_gear_nose_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "e0590f779931cd13eab5582e3f6ba9d822876c7fd6970d1d4793135928703397"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_gear_nose_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "f2b781393b876e7cfcd1763536ed93e864096b529dcd7fd76661cef4b50a2f76"
+        }
+      }
+    },
+    "kc-390_horiz_stabiliser_c": {
+      "source_sha256": "3f950ed5d0d1431def9a834af6b3263a7066cdab516629e0b04379adf9221197",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_horiz_stabiliser_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1fc2e373cfbb7829ba16cd31f47cf6c1598ee1fccfc55f8b4692079fdfa459f4"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_horiz_stabiliser_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "1a80b06ac65ea88d6aea7ca5a61d910568790ba0b361e0f5b053050d4435e141"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_horiz_stabiliser_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5cacab65d949897987cd62569e1711da1b94f46da0c017bc14b3c7a5c9abb6fe"
+        }
+      }
+    },
+    "kc-390_iae_suporte_c": {
+      "source_sha256": "764bfbed9898bab53233272c9688f11078aa34c170ad24de089e82515f18319d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_iae_suporte_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "01a05d28531071dcec832497153c277908a8b51481b3d18c587dd20680186003"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_iae_suporte_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "c62bdbbcd99eea4cf17f0f2ab89e58c156683aa0181d739732315a2138ac6f77"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_iae_suporte_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "7e9c7b139266ea9f013f712c8d1c0a28c4e68edfcee0aba9bd7f6c4b89b764ae"
+        }
+      }
+    },
+    "kc-390_iae_turbine_c": {
+      "source_sha256": "8add20911657b2afc5175c93e3c1f5b2a43022487ce92605c99627056e684259",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_iae_turbine_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1874538a477f61d91250f133a5c4f5f734df4f1d78e3a33c3f30091537ccdded"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_iae_turbine_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "26e86d96b744aa8de7fb85a1b21d990fb5eb27a9402787d5c4f36c8a3282e073"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_iae_turbine_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d853beafd452aa7f33569167265ce2fa55bbbfe5ae1682d40c09b687462ac643"
+        }
+      }
+    },
+    "kc-390_iae_turbinmetal_c": {
+      "source_sha256": "2374e5d0eb4c34a3ddface7ec68edc854893ab24eb98ac9feee3c9b8e867c188",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_iae_turbinmetal_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "ea973f5e375ee8a41152764179ae7d48ad398fb9a4137580c73d302d33325235"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_iae_turbinmetal_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "b1bb0fef00bfd6b558c4d359cad38a03351654adfcacdd138481b87402c1440b"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_iae_turbinmetal_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "4189d6f7adc878e895bc70ea1ef60862040ca18291ec0165562e13e3d28fd8f1"
+        }
+      }
+    },
+    "kc-390_ramp_estrut_c": {
+      "source_sha256": "ee69b90b653b67a33926f5c24c44ae0600ece980669fb119026231a215a14c41",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_ramp_estrut_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "942d2020be964756795b4f5e6884dc646ce7f3b47187650966ae819f2213f684"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_ramp_estrut_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "12765dd3160dc01c44e80e6d043ade8015a6825521de83ff2e45aba74a07587f"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_ramp_estrut_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "cda8bbbabba2b20ea05686087ab7394fc648c26fa2bd0cd3271cb166e589d8fd"
+        }
+      }
+    },
+    "kc-390_wing_aileron_c": {
+      "source_sha256": "5486c436f86a307abc5d51cdd65c6a4b02398424d2d269ee633a41d7eb61d2a9",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_aileron_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "102d4cf6b596aefc943f9f4681ac944a2d6cd00e70a6c3362f1bd4e11abb6523"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_aileron_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "0d50807fcf796c6b962472f525d9a84900dadaa576551ea98efa2f38af9b356b"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_aileron_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "0f763f79d4a6fecb216ddba337e9bd8f905a6f35f097c6b073ddc413091c3502"
+        }
+      }
+    },
+    "kc-390_wing_flap_a_c": {
+      "source_sha256": "c0218d99f94553f7e2e9b999453983e8ff0933852ec179949b8d8b3e2b0d9906",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_flap_a_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "07edacd0787097fb93c94104489134d095df11b8dd46d684223edac4cd88198c"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_flap_a_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "6b22f62d4240d7aab2bedd69260ba76565a0c854a97a11c2ea9b85e36a09023e"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_flap_a_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "83380ebe3cec069703b86bd06f3dc1de62b44a9455cc16c88b47371e6ccdcfd8"
+        }
+      }
+    },
+    "kc-390_wing_flap_b_c": {
+      "source_sha256": "426bd4b450db9d2b11a1d0b13d4d2f9b1b444d60e8dab4daace5ef26366c39bc",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_flap_b_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "c4f285fcb4ee257ac83c1b95c3a4c92eb08f587cb40c0d7004eeb4842b9cfe1d"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_flap_b_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "8fdcbb464f5a95f1a4923c2b20a1d14c48b742af83e3294dd380250882074ce2"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_flap_b_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d6c5f0d397c98fa10774e0ddce0a6a8657c204b05db1e2f7d98d64dedbae7823"
+        }
+      }
+    },
+    "kc-390_wing_slat_c": {
+      "source_sha256": "9715339ee7b3d1be54d3af8eea90e83eace65112f7a138bc4056834e16aa2e7d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_slat_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "04dd41c5502706d0c03a8959d63ba4fbdce0eb6e7a5acd4d6e873a72ea691ea0"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_slat_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "637a1e5c5f444bf11be841b9f8971d2dad83ed1369ea38e907bd25bafb468d04"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_slat_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "7ce2d0ec8b2a47c22ecac14f4b2d0496b783aa33aa686a7d3e3566396ee48a18"
+        }
+      }
+    },
+    "kc-390_wing_spoiler_a-d_c": {
+      "source_sha256": "100d36fd5fed48c48f84dd661d9891c4d41f0168dbed1d07a923aad1c8b7b006",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_a-d_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "28c9746a24c730f424f943955cc610308f1c614b4aac45876fe1e9f14a583daa"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_a-d_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "52eba665e00ef076985d92dbaff7d57b7399ec741f0126ef9067588e2ac77d7d"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_a-d_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "44bf6660906368b90afbefea195882259f313608d8230adacab6e4d9d5ecabb1"
+        }
+      }
+    },
+    "kc-390_wing_spoiler_b-c_c": {
+      "source_sha256": "7a434057e86394ca170f2ae56d561dbe698ae19e2a5d69f9b5dc6424f0a77807",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_b-c_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "0cd35629d1d09372700fb37fc99431c35f9133fb50c8e937436ee11d5c83383c"
+        },
+        "normal": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_b-c_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "de1d49e78b339d307d8361761380c4003f54f1a211792e2b4f20408878922567"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_kc-390_wing_spoiler_b-c_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "b3877d4d07d2b42dcfc10064de05dddc168cf0a8a597832d17470cae3374edb9"
+        }
+      }
+    },
+    "revo_pod_1_c": {
+      "source_sha256": "2804eaff03d427d4af4b5c4ebec328219f01921dcdd79a6a2a76da3715882083",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_revo_pod_1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "39e8fcb117206b1439292d254c238ce3c70d3301624d109cbabf157bd1a6fd1f"
+        },
+        "normal": {
+          "texture": "kc390_fab_revo_pod_1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "3f905a75d63e3734ed919f763f45f5037baeea232409a5f1d481cbaf2d8fea57"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_revo_pod_1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "47356a18ed84b601eb2648bced04dc3ecd4a0155f0bc8ba96c92d0e6a5b975c2"
+        }
+      }
+    },
+    "revo_tanque_1_c": {
+      "source_sha256": "6aa938c10a3fb91a5ef5e4bd39399581f3b991834973ba6343167741ecba82bc",
+      "maps": {
+        "colour": {
+          "texture": "kc390_fab_revo_tanque_1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "8eb4c9ca444befc5dcdfae12146ba0d120c594b1fcf4968c1de0f530e7560605"
+        },
+        "normal": {
+          "texture": "kc390_fab_revo_tanque_1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "fef7af3b0620555cacc5c5dd962ad5c7fbd01523774e28e6f118be81253ab32c"
+        },
+        "roughmet": {
+          "texture": "kc390_fab_revo_tanque_1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "303dbb88658c8a7b8a208c2f54724fdd0772c78a9ddfae27fd8a7912a7585aa1"
+        }
+      }
+    }
+  },
+  "shared_overrides": {
+    "soutear": {
+      "source_sha256": "b90eaefb0fdb12aa74f8ab5efec7f818b2468597ef0deba4ce82e096773c2474",
+      "texture": "kc390_fab_soutear_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "769eca23d9de7c639b193ec385bfc32f57d782425bdc50f1660a73712ffdaeec"
+    },
+    "form": {
+      "source_sha256": "86a34b4845948bc0e98af2cf0c5f8f282d84fd1589660cd754e4a4f8018ce0f3",
+      "texture": "kc390_fab_form_shared_colour",
+      "width": 1024,
+      "height": 128,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 175012,
+      "sha256": "c93927a60df7b3d4074fd11fc805ccdd23a32a9c53840eaeda9aef628ec186ae"
+    },
+    "kc-390_flightdeck_3_c": {
+      "source_sha256": "2cf0003801d4ea67553f19cd10d9257f823248d6c985a9828e579c48bae3af9a",
+      "texture": "kc390_fab_kc-390_flightdeck_3_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "4d5f1cec15a8cf975a80f7895aeb339a5d5a625241b0e87f99e6bdce6abcb50f"
+    },
+    "kc-390_flightdeck_2_c": {
+      "source_sha256": "3a029177127406fc8f5d2b36ddaf6f7c753be19ef4f55c8a19fbf8904c74a84e",
+      "texture": "kc390_fab_kc-390_flightdeck_2_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "d637b4c69df6a120e7609a8d692c32bf1e1c354bf52bdb64d1f4d59d3dc1c66f"
+    },
+    "kc-390_flightdeck_1_c": {
+      "source_sha256": "0a4273feb9a54eb6790fffc83dbbd9adf5923211577537943c865e684f091531",
+      "texture": "kc390_fab_kc-390_flightdeck_1_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "f67edda4f108430c6fa1ba2bec5a5e0e006b2b034732b6a5b9bebc207c428f0d"
+    },
+    "kc-390_cargo_1_c": {
+      "source_sha256": "1078f7cd537fdc375d6f84413a542ce5cdd36194d1f84352f30e892a4c8374e9",
+      "texture": "kc390_fab_kc-390_cargo_1_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "807cc943337f7c389a28c87eb4b206b07417c79fe074f15590b3003fe22a5ff7"
+    },
+    "kc-390_cargo_2_c": {
+      "source_sha256": "8e11408419c4b9474994cb0e097108c47f525dcc9021458028a4c9115e7bf86c",
+      "texture": "kc390_fab_kc-390_cargo_2_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "69c1581a83bd035a50479ec97effe9878d84703d0e602ac0cb13e5810a098dd6"
+    }
+  },
+  "max_texture_size": 1024
+}

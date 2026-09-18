@@ -20,6 +20,8 @@ declare_plugin(self_ID,
     state         = "installed",
     developerName = "FABv / VS Mod",
     info          = _("Embraer KC-390 Millennium - aeronave de transporte a jato (IA), convertida com permissao do autor."),
+    encyclopedia_path = current_mod_path..'/Encyclopedia',
+    
 
     Skins =
     {
@@ -45,7 +47,7 @@ mount_vfs_texture_path  (current_mod_path .. "/Theme/ME")
 mount_vfs_model_path    (current_mod_path .. "/Shapes")
 
 -- Carrega o flight model (SFM) e depois a definicao da aeronave --------
-dofile(current_mod_path .. "/KC-390_SFM.lua")
-dofile(current_mod_path .. "/KC-390.lua")
+dofile(current_mod_path .. "/Entry/KC-390_SFM.lua")
+dofile(current_mod_path .. "/Entry/KC-390.lua")
 
 plugin_done()

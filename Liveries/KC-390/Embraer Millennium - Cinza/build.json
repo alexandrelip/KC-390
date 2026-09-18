@@ -1,0 +1,1204 @@
+{
+  "parts": {
+    "kc-390_fuselage_a1_c": {
+      "source_sha256": "a6ceb97bd9f9e696d3c63fbe304aef66177d65b007a5f3785a362d9c518ffb1a",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_a1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "81108838b4d98f95951b2bafe02b076efbf556af5d9f2aa7dd326b4977c5cf25"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_a1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "6b198e1dd7839216e88d71e67c534a5ffd8cef02c552f8f5bd51ec5a666bc75e"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_a1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "f90bb5df3d0a921dbeac1a8943968957ccbeada34b66a95e7959c166fa0d8a75"
+        }
+      }
+    },
+    "glass_s": {
+      "source_sha256": "1d073f4100e2a4c886309be6671655aeb1cef67dc1956ad2fd1eff3fe3ef59c1",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_glass_s_colour",
+          "width": 256,
+          "height": 256,
+          "mipmaps": 9,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 87556,
+          "sha256": "2a64f94149be4711a122552dfd5b03edcd343054bfeafcdfa8ab6f88774c5628"
+        },
+        "normal": {
+          "texture": "kc390_embraer_glass_s_normal",
+          "width": 4,
+          "height": 4,
+          "mipmaps": 3,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 196,
+          "sha256": "f1cdf8ddfec0b1940231a68432a33fbf2adba84d43cc2fbd5d90d33c633716f5"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_glass_s_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5e1479ed8c5ecf35ec084b4965b861b33c5f1f50301549df4ae07eb82f64b08d"
+        }
+      }
+    },
+    "gold_t": {
+      "source_sha256": "28733ef1f079b36730827dd263598ec416e34db47110e973cff39bbd7cc90f18",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_gold_t_colour",
+          "width": 256,
+          "height": 256,
+          "mipmaps": 9,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 87556,
+          "sha256": "e3ffd138f87061d1b8bb98d55f1d7f387a65529b9c8dc8b8c6bc69bcbcb594de"
+        },
+        "normal": {
+          "texture": "kc390_embraer_gold_t_normal",
+          "width": 4,
+          "height": 4,
+          "mipmaps": 3,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 196,
+          "sha256": "f1cdf8ddfec0b1940231a68432a33fbf2adba84d43cc2fbd5d90d33c633716f5"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_gold_t_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5e1479ed8c5ecf35ec084b4965b861b33c5f1f50301549df4ae07eb82f64b08d"
+        }
+      }
+    },
+    "kc-390_fuselage_a4_c": {
+      "source_sha256": "832968db77713c51b7e967ea1e1e0fc1840e38e68d1662d77c18d79f41064e4b",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_a4_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "2fd31ac8b996634ca9af457bd6d4356d5c3c9ecaefe0cc54a72c224b401b5cb1"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_a4_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "088a323a51ca474ca0f9e3c739dc9d2c1d539cce8bd280533474c229b9e13eb2"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_a4_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "f3c50d91be39aeb0bca5f3c10e9c33f905a26da1b475c2a4229c3248255b4ce9"
+        }
+      }
+    },
+    "kc-390_fuselage_a5_c": {
+      "source_sha256": "94e0badf13a5bff00dfecde1c2806ad5cb4f81bdfb426516840cf8993ae8a676",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_a5_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "bd83e081fb64e1606bb86749329451d887d65b3a2bbd17f0f54c86d0e8924634"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_a5_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "cbc45a80bcc1ae9a1dc3600a85e0a9cec5e7baca367be78abb17b0ea9bddb399"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_a5_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "f66fa38a11bb03ce767ab94cc6e8cf6509dae467ba44164d7ffbe74056635da8"
+        }
+      }
+    },
+    "kc-390_wing_c": {
+      "source_sha256": "ebd3f34dbbed414f9f0797d595c1f22c7240d722dacef984c8dc4aa4641e4f34",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "d7e54f8c47ea6d97fc847ce52e14fc931390c4060431150d0e515ab1bfcbc125"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "d8b176fae79e99304bae93720f1da8e711abaaa57ab5514ee0266c08179c5183"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "840b1a518988f74813a39bb70d8ff9185934147d62b1889031e384b5175b9b6d"
+        }
+      }
+    },
+    "airbus_ex_baremetalgloss_iae_c": {
+      "source_sha256": "55252de6cd5c6372f3b4413a913a0dbdc0105b92721193c0a01e44b33c925cf6",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_airbus_ex_baremetalgloss_iae_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1e6823de2067e750d5b1d9f03d2870ebb24a959e89a6120f4320d57a5df4b351"
+        },
+        "normal": {
+          "texture": "kc390_embraer_airbus_ex_baremetalgloss_iae_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "5fa6f735d489cf10f92eb04984116ee2ba52104eb80508d7810826c0f91024cc"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_airbus_ex_baremetalgloss_iae_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "6df847dc8596ddd4df39f343436cb093f90e631622daba383c7c657413c89a62"
+        }
+      }
+    },
+    "kc-390_blast_deflector_c": {
+      "source_sha256": "e68940a0ead787bc6ac345b7b3800ccfb6d201918b4b9da74ca7e2284ca3e41e",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_blast_deflector_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "4897107f0db11f94c35c8866f5e597b9761cb3378996e6b64f7596660e2b42d5"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_blast_deflector_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "fef7af3b0620555cacc5c5dd962ad5c7fbd01523774e28e6f118be81253ab32c"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_blast_deflector_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d64e01bd18550586ad5112c81cd78052e377a0b628cc5ec1bd914794a41f744b"
+        }
+      }
+    },
+    "kc-390_elevator_c": {
+      "source_sha256": "90db6a76b6df85f83916d3c4fca683869bfc04e43d2239eddb37ad16d511eb21",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_elevator_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "7dbd2707d4c9fe3ef9cb7f1db160a65e2cce01b528de60068ed8d8f18dc5b1ce"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_elevator_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "2f162d137f48409b87be794d0a9057e5c9105c51ea9a3bf50192cd84da74fb96"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_elevator_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "33beaada1213ab996f50fa809da3a7b42fb39ee11379a9603c3b21d9a3279163"
+        }
+      }
+    },
+    "kc-390_fusel_estrut_c": {
+      "source_sha256": "073fb990533c9464c85a8475ffb71e64342788120219a2a11594af34f6b38190",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fusel_estrut_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "37ffe7ec1cc30113aec994ab1fadf5f3434d46621ce2e56436be8b16c2068a81"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fusel_estrut_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "f499470099c0865f3bb6b99c5b5fedb7ab316968275e38be81073b9d1708d715"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fusel_estrut_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "6acd3eeeca79a84bb02b1c6e5af54a5016859bd514adff20deb2926e9f8e4d52"
+        }
+      }
+    },
+    "kc-390_fuselage_a2_c": {
+      "source_sha256": "24d4ca5aa0496cdc7502ca6aa30950c51d52fc1827228e08db4574354f8e53a5",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_a2_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "4cb45d594c7f9a66564534bbbc00eacf0febcd9c1866eb22f9307471a41c10fd"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_a2_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "4555c9fc657a5e5285884e56d3debe3176f0aff8ec901739cd224deafd3f96f5"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_a2_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "a93d7b303dc179f335fffff7d56c5899481114bb2749825a729efe89bf442366"
+        }
+      }
+    },
+    "kc-390_fuselage_a3_c": {
+      "source_sha256": "747a56b2812918cf7f2be2e099fab868054762303025cd1ccb3e21f8e3b81c72",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_a3_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "530c75ae6d492816adf01b176b639ecb9b160c070933344e8d3ae25a9787ecfa"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_a3_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "bbff543303efc91ccf32f48621054cc236ee91a7e38540215211b6b5dbbccb46"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_a3_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "3c0a2ecb215c23d11c15c0eb53eac330bd3cefc0c9845aea6d1b61c37f7a9fe6"
+        }
+      }
+    },
+    "kc-390_fuselage_b_c": {
+      "source_sha256": "cf5125577d3d313cec6268179ecd63a5c405dbde56c0ba5a177238ee2a014369",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_b_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "75d4ec1095aa5feb0461550b6f56aa72a64a46a09de0fb64dcc0c4cba2ed26f1"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_b_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "908e194fb20ae33a7a3037b7f42275fa69b268f84ad0b45b8936b615ec41cf38"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_b_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "afb0c2fff0882ca6548233bebe276f0e6dd11445ab647ba37aa91b671a6bb9db"
+        }
+      }
+    },
+    "kc-390_fuselage_f2_c": {
+      "source_sha256": "920578d747980ddfd71ef279f0e4bd4afe06ab3ee39d4f2ccb6bcbd22432bf6c",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_f2_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "4032a629c60dbd4d479badf204daafb188b05d114f9852c234344bd7b24add3f"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_f2_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "a36f9ac06290362c99d07883fd3f21e3b12c89e15822568dc6979bb979cca3dd"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_f2_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "5b4c326131584935c9d957b5efbd4a3852e2e5f21d27fb1484550a651c919ba0"
+        }
+      }
+    },
+    "kc-390_fuselage_f_c": {
+      "source_sha256": "9ef173dbbbe47437ec7184b056fcb1717d9edc2dae33f384c4c325eacbe8ad8d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_f_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "cdd468323fea3443d69603eeab2544f823dcbcd3591437bc1afca55e123141e3"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_f_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "77e7320624401013c96c2aa64d3f79313ff83a3fb6e2bfa528a5b282271045c8"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_f_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "bb6b71327a4bbc9ab855809049997db6e816f983ab16d9c3f4814683c174742f"
+        }
+      }
+    },
+    "kc-390_fuselage_g_c": {
+      "source_sha256": "08bebbe58fd4699b3b037f65ea41c92d2c11fe075bceae3360e5fde9e737c82c",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_fuselage_g_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "5bc802d1acd0a809cc8ad34d7ddb0c7b91c59172de7b87e65d2276d741fde4c1"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_fuselage_g_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "cb958b219f64abb82f1bea854178c91b69e23d4ac2a7a46a9eb69c44afb17bcd"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_fuselage_g_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "a228f92c02935875e0d23ecf8edb09c4974433e71e3433f4081ef4564f31fb30"
+        }
+      }
+    },
+    "kc-390_gear_ld_c": {
+      "source_sha256": "b4b3d0e8461321f58f1370817ef06370d4aa86c78e7865b159cb8cfee73e3b0d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_gear_ld_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "6ba6fa34306debdd906b91f7f1d680521e165ac6a20d8e0a4355741cfacad7b0"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_gear_ld_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "07e4ba0bdd52c6be031827bf93dacc192a3b892e3b1b5c2e202a4bf7ba5d272f"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_gear_ld_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d34aaf169c79bf1da1e46a8d88fb37d097228ef1ad2a9e057071e9241aa30d65"
+        }
+      }
+    },
+    "kc-390_gear_le_c": {
+      "source_sha256": "ff446e47f9c910b5e5290045edf8fc1f0fd20013395b45bbbbf59d6de6ed05f9",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_gear_le_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "d25bc1b1f3243a38e53cd91215ff984ad8ab6deb14e90d1d4a05483a36eecbf6"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_gear_le_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "2750842d1df109f0b30b23c66866fab37a8862f1933a3aee596ac5cf483760f5"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_gear_le_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "b973ed7f8b8dbc941858dcd2602644a5913d40fe690f94f4a0bb0b8ef52e41b2"
+        }
+      }
+    },
+    "kc-390_gear_nose_c": {
+      "source_sha256": "17f037460f41a163145b68ecf76c34ea04c9c6722fead660e77cc2b4a81ed816",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_gear_nose_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1341c526df39634ba623aeaf22e911c08f84ef857bebcbb27565bf3d34bfd7fc"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_gear_nose_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "e0590f779931cd13eab5582e3f6ba9d822876c7fd6970d1d4793135928703397"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_gear_nose_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "29e38d9f72557d5ea827705960258494981c41c50afaebdfc98eec3561c8699e"
+        }
+      }
+    },
+    "kc-390_horiz_stabiliser_c": {
+      "source_sha256": "3f950ed5d0d1431def9a834af6b3263a7066cdab516629e0b04379adf9221197",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_horiz_stabiliser_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "44b9dbfcdc1da425766abb89c4d245c4f978da2a431d5cefc339ad4286f3f770"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_horiz_stabiliser_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "1a80b06ac65ea88d6aea7ca5a61d910568790ba0b361e0f5b053050d4435e141"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_horiz_stabiliser_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "a3703cd82bdef1a16de9fa816c464fe8f035cdf03df898ba4e5193d1fe1bd7c2"
+        }
+      }
+    },
+    "kc-390_iae_suporte_c": {
+      "source_sha256": "764bfbed9898bab53233272c9688f11078aa34c170ad24de089e82515f18319d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_iae_suporte_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "a855073889c2fe69d8fb15dde988f7050c42f72904e78b3dfdc4ba9a60cedbf3"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_iae_suporte_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "c62bdbbcd99eea4cf17f0f2ab89e58c156683aa0181d739732315a2138ac6f77"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_iae_suporte_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "686e64b20c731b9d8c290daa0b79836d41288b70a5ddb29e2702aff870158861"
+        }
+      }
+    },
+    "kc-390_iae_turbine_c": {
+      "source_sha256": "8add20911657b2afc5175c93e3c1f5b2a43022487ce92605c99627056e684259",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_iae_turbine_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "b1098296405675d2c1852e908402d8a2a43138e1175e160969f45200aeba83ff"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_iae_turbine_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "26e86d96b744aa8de7fb85a1b21d990fb5eb27a9402787d5c4f36c8a3282e073"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_iae_turbine_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "89a41119debefff11b3708cf41e67a1e8805e1db3cd38fb8eb5d2728e84f8735"
+        }
+      }
+    },
+    "kc-390_iae_turbinmetal_c": {
+      "source_sha256": "2374e5d0eb4c34a3ddface7ec68edc854893ab24eb98ac9feee3c9b8e867c188",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_iae_turbinmetal_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "da043cac29079e99dd86fea2171fc98079ed359d39177ce6ae0c93269c083801"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_iae_turbinmetal_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "b1bb0fef00bfd6b558c4d359cad38a03351654adfcacdd138481b87402c1440b"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_iae_turbinmetal_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "8ec37dcb3f36c1060ec40433893387f8a99d4ca8fd7f5e0ca7922ff259c2041f"
+        }
+      }
+    },
+    "kc-390_ramp_estrut_c": {
+      "source_sha256": "ee69b90b653b67a33926f5c24c44ae0600ece980669fb119026231a215a14c41",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_ramp_estrut_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "0a4e9395f2465f4f0d04f1269fd3be30efb9080d0d34749fcd9f2bbee7bf0fd5"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_ramp_estrut_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "12765dd3160dc01c44e80e6d043ade8015a6825521de83ff2e45aba74a07587f"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_ramp_estrut_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "36783d0301e109d346c6177814436a06f41310bffb5af0200477b50bd082183c"
+        }
+      }
+    },
+    "kc-390_wing_aileron_c": {
+      "source_sha256": "5486c436f86a307abc5d51cdd65c6a4b02398424d2d269ee633a41d7eb61d2a9",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_aileron_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "e188dff99cfa993a514f4031231e19455bda3132ab0a8530e386da5d2bf0be2c"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_aileron_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "0d50807fcf796c6b962472f525d9a84900dadaa576551ea98efa2f38af9b356b"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_aileron_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "739fdad78be9023a3cc983f360bbf93cd2db78c5a238d4a46eda4876e0bbad1d"
+        }
+      }
+    },
+    "kc-390_wing_flap_a_c": {
+      "source_sha256": "c0218d99f94553f7e2e9b999453983e8ff0933852ec179949b8d8b3e2b0d9906",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_flap_a_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "66f451217921fa4969cc65c802b1cc8b537a12afb8268338a6252fe5bf712af1"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_flap_a_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "6b22f62d4240d7aab2bedd69260ba76565a0c854a97a11c2ea9b85e36a09023e"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_flap_a_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "18bc627d7d75698469184994f2512984da19babfa2a9ab5728b90f7d6eea796d"
+        }
+      }
+    },
+    "kc-390_wing_flap_b_c": {
+      "source_sha256": "426bd4b450db9d2b11a1d0b13d4d2f9b1b444d60e8dab4daace5ef26366c39bc",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_flap_b_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1d626dc12d44d529ae968d50f682d84a7845823506ea42f2f758085f4bda8dbc"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_flap_b_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "8fdcbb464f5a95f1a4923c2b20a1d14c48b742af83e3294dd380250882074ce2"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_flap_b_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "bfaac231fc9ce082c2aa24bcd94afa0deaa6811104e2260c951192a0d04434c1"
+        }
+      }
+    },
+    "kc-390_wing_slat_c": {
+      "source_sha256": "9715339ee7b3d1be54d3af8eea90e83eace65112f7a138bc4056834e16aa2e7d",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_slat_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "90d521c45edde6641c4b50349bdf6940857dd658ee8aca4c7864083082eb3648"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_slat_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "637a1e5c5f444bf11be841b9f8971d2dad83ed1369ea38e907bd25bafb468d04"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_slat_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "19921b13dd412aa048cb9c1b470b7c80e7ce19c86303a851953b7e91c6da3c7e"
+        }
+      }
+    },
+    "kc-390_wing_spoiler_a-d_c": {
+      "source_sha256": "100d36fd5fed48c48f84dd661d9891c4d41f0168dbed1d07a923aad1c8b7b006",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_a-d_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "c3e87bdc989b625410fa30a57a6b37da531301d6bf5081bc15b05101fd85129b"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_a-d_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "52eba665e00ef076985d92dbaff7d57b7399ec741f0126ef9067588e2ac77d7d"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_a-d_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "7e0e56611a43a0b8a298c3d3cd6c8fa653efc9882a23c8c85a83c765f49351f6"
+        }
+      }
+    },
+    "kc-390_wing_spoiler_b-c_c": {
+      "source_sha256": "7a434057e86394ca170f2ae56d561dbe698ae19e2a5d69f9b5dc6424f0a77807",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_b-c_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "e06715bc591d96e655f866912096398092c197e9be174057cc389d88ae1a3eda"
+        },
+        "normal": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_b-c_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "de1d49e78b339d307d8361761380c4003f54f1a211792e2b4f20408878922567"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_kc-390_wing_spoiler_b-c_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "8545d1ad24df02b66d8f35032842ccaa04d625aab8c699ca030ed6f243457e0a"
+        }
+      }
+    },
+    "revo_pod_1_c": {
+      "source_sha256": "2804eaff03d427d4af4b5c4ebec328219f01921dcdd79a6a2a76da3715882083",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_revo_pod_1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "1bd45fd2aab207b71f6484bc2e6c6a09172cd9c10741d786afa531ebceb324ee"
+        },
+        "normal": {
+          "texture": "kc390_embraer_revo_pod_1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "3f905a75d63e3734ed919f763f45f5037baeea232409a5f1d481cbaf2d8fea57"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_revo_pod_1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "d35cfdc48e9d74c7a34a69c77ad48aa970412dfcdfcc083e9d5d024b4580fa36"
+        }
+      }
+    },
+    "revo_tanque_1_c": {
+      "source_sha256": "6aa938c10a3fb91a5ef5e4bd39399581f3b991834973ba6343167741ecba82bc",
+      "maps": {
+        "colour": {
+          "texture": "kc390_embraer_revo_tanque_1_c_colour",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 99,
+          "bytes": 1398276,
+          "sha256": "e8115baa411810320edf7f75d9d2cc99a6c3d8f91cf638c531dff1996c8af432"
+        },
+        "normal": {
+          "texture": "kc390_embraer_revo_tanque_1_c_normal",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 83,
+          "bytes": 1398276,
+          "sha256": "fef7af3b0620555cacc5c5dd962ad5c7fbd01523774e28e6f118be81253ab32c"
+        },
+        "roughmet": {
+          "texture": "kc390_embraer_revo_tanque_1_c_roughmet",
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "fourcc": "DX10",
+          "dxgi": 98,
+          "bytes": 1398276,
+          "sha256": "b97f52a165df48f9a068b63b28647c1fa394fa3496d040650667bf05c6742474"
+        }
+      }
+    }
+  },
+  "shared_overrides": {
+    "soutear": {
+      "source_sha256": "b90eaefb0fdb12aa74f8ab5efec7f818b2468597ef0deba4ce82e096773c2474",
+      "texture": "kc390_embraer_soutear_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "769eca23d9de7c639b193ec385bfc32f57d782425bdc50f1660a73712ffdaeec"
+    },
+    "form": {
+      "source_sha256": "86a34b4845948bc0e98af2cf0c5f8f282d84fd1589660cd754e4a4f8018ce0f3",
+      "texture": "kc390_embraer_form_shared_colour",
+      "width": 1024,
+      "height": 128,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 175012,
+      "sha256": "c93927a60df7b3d4074fd11fc805ccdd23a32a9c53840eaeda9aef628ec186ae"
+    },
+    "kc-390_flightdeck_3_c": {
+      "source_sha256": "2cf0003801d4ea67553f19cd10d9257f823248d6c985a9828e579c48bae3af9a",
+      "texture": "kc390_embraer_kc-390_flightdeck_3_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "4d5f1cec15a8cf975a80f7895aeb339a5d5a625241b0e87f99e6bdce6abcb50f"
+    },
+    "kc-390_flightdeck_2_c": {
+      "source_sha256": "3a029177127406fc8f5d2b36ddaf6f7c753be19ef4f55c8a19fbf8904c74a84e",
+      "texture": "kc390_embraer_kc-390_flightdeck_2_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "d637b4c69df6a120e7609a8d692c32bf1e1c354bf52bdb64d1f4d59d3dc1c66f"
+    },
+    "kc-390_flightdeck_1_c": {
+      "source_sha256": "0a4273feb9a54eb6790fffc83dbbd9adf5923211577537943c865e684f091531",
+      "texture": "kc390_embraer_kc-390_flightdeck_1_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "f67edda4f108430c6fa1ba2bec5a5e0e006b2b034732b6a5b9bebc207c428f0d"
+    },
+    "kc-390_cargo_1_c": {
+      "source_sha256": "1078f7cd537fdc375d6f84413a542ce5cdd36194d1f84352f30e892a4c8374e9",
+      "texture": "kc390_embraer_kc-390_cargo_1_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "807cc943337f7c389a28c87eb4b206b07417c79fe074f15590b3003fe22a5ff7"
+    },
+    "kc-390_cargo_2_c": {
+      "source_sha256": "8e11408419c4b9474994cb0e097108c47f525dcc9021458028a4c9115e7bf86c",
+      "texture": "kc390_embraer_kc-390_cargo_2_c_shared_colour",
+      "width": 1024,
+      "height": 1024,
+      "mipmaps": 11,
+      "fourcc": "DX10",
+      "dxgi": 99,
+      "bytes": 1398276,
+      "sha256": "69c1581a83bd035a50479ec97effe9878d84703d0e602ac0cb13e5810a098dd6"
+    }
+  },
+  "max_texture_size": 1024
+}
