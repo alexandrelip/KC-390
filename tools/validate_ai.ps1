@@ -1,15 +1,17 @@
 [CmdletBinding()]
 param(
     [string]$DcsRoot = 'D:\Program Files\DCS World',
+    [ValidateSet('bin', 'bin-mt')][string]$DcsBin = 'bin-mt',
     [string]$NormalProfile = (Join-Path $env:USERPROFILE 'Saved Games\DCS'),
-    [ValidateSet('Damage', 'Takeoff', 'Fans')][string]$Scenario = 'Damage',
+    [ValidateSet('Damage', 'Takeoff', 'Fans', 'Wings')][string]$Scenario = 'Damage',
+    [ValidateSet('Left', 'Right')][string]$WingSide = 'Left',
     [switch]$AllowParallelDcs,
     [switch]$Render,
     [ValidateRange(120, 600)][int]$TimeoutSeconds = 360
 )
 
 $ErrorActionPreference = 'Stop'
-$useRendering = $Render -or $Scenario -eq 'Fans'
+$useRendering = $Render -or $Scenario -in @('Fans', 'Wings')
 $root = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $lua = Join-Path $DcsRoot 'bin\luae.exe'
 & $lua (Join-Path $PSScriptRoot 'check_ai.lua') $root
@@ -25,6 +27,7 @@ $normalConfig = Join-Path $NormalProfile 'Config'
 $optionsPath = Join-Path $normalConfig 'options.lua'
 $optionsHash = (Get-FileHash -LiteralPath $optionsPath -Algorithm SHA256).Hash
 $tracked = @('Entry\KC-390.lua', 'Entry\KC-390_SFM.lua', 'Shapes\KC-390.lods', 'Shapes\KC-390.edm', 'Shapes\KC-390_lod01.edm', 'Shapes\KC-390_lod02.edm', 'Shapes\KC-390_lod03.edm', 'Shapes\KC-390_collision.edm')
+$tracked += @('Shapes\KC-390_NoseCone.edm', 'Shapes\KC-390_WingLeft.edm', 'Shapes\KC-390_WingRight.edm', 'Shapes\KC-390_CargoDoor.edm')
 $missionName = if ($Scenario -in @('Takeoff', 'Fans')) { 'KC-390 Takeoff Test.miz' } else { 'KC-390 AI Test.miz' }
 $tracked += @('tools\check_ai.lua', 'tools\prepare_ai_test.lua', 'tools\validate_ai.ps1', ('Missions\QuickStart\' + $missionName))
 $sourceHashes = @{}
@@ -32,6 +35,7 @@ foreach ($relative in $tracked) { $sourceHashes[$relative] = (Get-FileHash -Lite
 $process = $null
 $createdProfile = $false
 $timedOut = $false
+$exitCode = $null
 if ((Test-Path -LiteralPath $testProfile) -or (Test-Path -LiteralPath $work)) { throw 'Refusing to reuse an existing test directory.' }
 [System.IO.Directory]::CreateDirectory($work) | Out-Null
 Copy-Item -LiteralPath $optionsPath -Destination (Join-Path $work 'options.before.lua')
@@ -46,20 +50,37 @@ try {
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     [System.IO.Compression.ZipFile]::ExtractToDirectory((Join-Path $root ('Missions\QuickStart\' + $missionName)), (Join-Path $work 'staged'))
     $renderMode = if ($useRendering) { 'Render' } else { 'Headless' }
-    & $lua (Join-Path $PSScriptRoot 'prepare_ai_test.lua') $work $testProfile $Scenario $renderMode
+    & $lua (Join-Path $PSScriptRoot 'prepare_ai_test.lua') $work $testProfile $Scenario $renderMode $WingSide
     if ($LASTEXITCODE -ne 0) { throw 'Mission generation failed.' }
     $testMission = Join-Path $work 'AI-validation.miz'
     [System.IO.Compression.ZipFile]::CreateFromDirectory((Join-Path $work 'staged'), $testMission)
     $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
-    $startInfo.FileName = Join-Path $DcsRoot 'bin\DCS.exe'
+    $startInfo.FileName = Join-Path $DcsRoot ($DcsBin + '\DCS.exe')
     $startInfo.WorkingDirectory = $DcsRoot
     $startInfo.UseShellExecute = $false
     $renderArgument = if ($useRendering) { '' } else { ' --norender' }
     $startInfo.Arguments = '-w ' + $profileName + $renderArgument + ' --force_disable_VR --mission "' + $testMission + '"'
     $process = [System.Diagnostics.Process]::Start($startInfo)
     Write-Output ('Isolated DCS PID={0}; mode={1}; existing sessions untouched={2}' -f $process.Id, $renderMode, ($existing.Id -join ','))
-    $timedOut = -not $process.WaitForExit($TimeoutSeconds * 1000)
+    if ($Scenario -eq 'Wings') {
+        $captureDirectory = Join-Path $testProfile 'ScreenShots'
+        [IO.Directory]::CreateDirectory($captureDirectory) | Out-Null
+        $requestPath = Join-Path $testProfile 'wing-capture.txt'
+        $lastCapture = ''
+        $elapsed = [Diagnostics.Stopwatch]::StartNew()
+        while (-not $process.WaitForExit(250)) {
+            if ($elapsed.Elapsed.TotalSeconds -ge $TimeoutSeconds) { $timedOut = $true; break }
+            if (-not (Test-Path -LiteralPath $requestPath)) { continue }
+            $request = (Get-Content -LiteralPath $requestPath -Raw).Trim()
+            if ($request -eq $lastCapture -or $request -notmatch '^wing-[0-9]+$') { continue }
+            & (Join-Path $PSScriptRoot 'livery_viewer.ps1') -Action Capture -ProcessId $process.Id -OutputPath (Join-Path $captureDirectory ($request + '.png'))
+            $lastCapture = $request
+        }
+    } else {
+        $timedOut = -not $process.WaitForExit($TimeoutSeconds * 1000)
+    }
     if ($timedOut) { $process.Kill(); $process.WaitForExit() }
+    $exitCode = $process.ExitCode
     Write-Output ('DCS exit={0}; timeout={1}' -f $process.ExitCode, $timedOut)
 } finally {
     if ($process) {
@@ -81,7 +102,7 @@ try {
     }
     $profileRemoved = -not (Test-Path -LiteralPath $testProfile)
     $preservation = @{ NormalOptionsUnchanged = $optionsUnchanged; SourceUnchanged = $sourceUnchanged; TemporaryProfileAndAuthRemoved = $profileRemoved }
-    @{ Preservation = $preservation; SourceHashes = $sourceHashes; Profile = $testProfile; TimedOut = $timedOut } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $work 'manifest.json') -Encoding UTF8
+    @{ Preservation = $preservation; SourceHashes = $sourceHashes; Profile = $testProfile; TimedOut = $timedOut; ExitCode = $exitCode; ExecutableDirectory = $DcsBin; Scenario = $Scenario; WingSide = $WingSide } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $work 'manifest.json') -Encoding UTF8
     $preservation | ConvertTo-Json
     Write-Output ('Evidence: {0}' -f $work)
     if (-not ($optionsUnchanged -and $sourceUnchanged -and $profileRemoved)) { throw 'Preservation check failed. Inspect the evidence; no unrelated files were restored.' }
@@ -90,4 +111,6 @@ $resultLog = Join-Path $work 'dcs.log'
 if (-not (Test-Path -LiteralPath $resultLog)) { throw 'No DCS log: the native test did not run.' }
 $markers = @(Select-String -LiteralPath $resultLog -Pattern 'KC390_AI_' | ForEach-Object { $_.Line })
 $markers | Write-Output
-if ($timedOut -or -not ($markers -match 'KC390_AI_RESULT PASS$') -or ($markers -match 'KC390_AI_RESULT (ERROR|FAIL)')) { throw 'Native AI validation did not pass. See the saved log.' }
+$expectedResult = if ($Scenario -eq 'Wings') { 'KC390_AI_RESULT OBSERVED$' } else { 'KC390_AI_RESULT PASS$' }
+$nativeExceptions = @(Select-String -LiteralPath $resultLog -Pattern '# C[0-9A-F]{7} (ACCESS_VIOLATION|EXCEPTION)|Minidump created')
+if ($timedOut -or $exitCode -ne 0 -or $nativeExceptions.Count -or -not ($markers -match $expectedResult) -or ($markers -match 'KC390_AI_RESULT (ERROR|FAIL)')) { throw 'Native AI validation did not pass. See the saved log.' }

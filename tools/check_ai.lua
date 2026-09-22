@@ -1,4 +1,5 @@
 local root = (arg[1] or "."):gsub("\\", "/"):gsub("/$", "") .. "/"
+local shapes = (arg[2] or root .. "Shapes"):gsub("\\", "/"):gsub("/$", "") .. "/"
 local environment = {
     _ = function(value) return value end,
     aircraft_task = function(value) return value end,
@@ -19,7 +20,8 @@ local function load_config(path)
     chunk()
 end
 local function read_binary(path)
-    local file = assert(io.open(root .. path, "rb"))
+    local resolved = path:sub(1, 7) == "Shapes/" and shapes .. path:sub(8) or root .. path
+    local file = assert(io.open(resolved, "rb"))
     local bytes = assert(file:read("*a"))
     assert(file:close())
     return bytes
@@ -32,7 +34,9 @@ load_config("Entry/KC-390.lua")
 load_config("Shapes/KC-390.lods")
 local aircraft = assert(environment.registered)
 assert(aircraft == environment.KC_390 and aircraft.Name == "KC-390")
-assert(aircraft.shape_table_data[1].life == 45, "Expected stock C-130 baseline: 45 HP")
+assert(aircraft.shape_table_data[1].life == 20, "Expected Hercules-equivalent baseline: 20 HP")
+assert(aircraft.shape_table_data[1].desrt == aircraft.shape_table_data[2].name)
+assert(aircraft.shape_table_data[2].file == "C-130-oblomok", "Expected native C-130 wreck")
 assert(aircraft.M_nominal == aircraft.M_empty + aircraft.M_fuel_max)
 assert(aircraft.M_max > aircraft.M_nominal and aircraft.engines_count == 2)
 assert(aircraft.SFM_Data == environment.KC390_SFM)
@@ -72,6 +76,8 @@ local collision = read_binary("Shapes/" .. model.collision_shell)
 assert(collision:find("model::ShellNode", 1, true), "Missing physical collision nodes")
 local damage = assert(aircraft.Damage)
 local count = 0
+local damage_arguments, fragments = {}, {}
+local fragment_ids = { NOSE_CENTER = 0, WING_L_IN = 35, WING_R_IN = 36, TAIL_BOTTOM = 58 }
 local function visit(name, visiting)
     assert(not visiting[name], "Damage dependency cycle: " .. name)
     local cell = assert(damage[name], "Undefined damage cell: " .. name)
@@ -83,21 +89,36 @@ for name, cell in pairs(damage) do
     count = count + 1
     assert(finite(cell.critical_damage) and cell.critical_damage > 0, name)
     assert(collision:find(name, 1, true), "Missing physical damage cell: " .. name)
-    assert(not cell.args and not cell.droppable_shape, "Unsupported damage asset: " .. name)
+    assert(type(cell.args) == "table" and #cell.args == 1, "Missing damage argument: " .. name)
+    local argument = cell.args[1]
+    assert(argument >= 140 and argument <= 179 and argument % 1 == 0, "Invalid damage argument: " .. name)
+    assert(not damage_arguments[argument] and not animated[argument], "Conflicting damage argument: " .. name)
+    damage_arguments[argument] = name
+    if cell.droppable then
+        assert(fragment_ids[name] and aircraft.DamageParts[1000 + fragment_ids[name]] == cell.droppable_shape, "Fragment ID mismatch: " .. name)
+        assert(#read_binary("Shapes/" .. cell.droppable_shape .. ".edm") > 0, "Missing damage fragment: " .. name)
+        fragments[name] = true
+    else
+        assert(not cell.droppable_shape, "Unreachable fragment: " .. name)
+    end
     visit(name, {})
-    local right = name:gsub("_L_", "_R_"):gsub("_L$", "_R"):gsub("_LEFT_", "_RIGHT_")
+    local right = name:gsub("_L_", "_R_"):gsub("_L$", "_R"):gsub("LEFT_", "RIGHT_")
     if right ~= name then
         assert(damage[right] and damage[right].critical_damage == cell.critical_damage, "Asymmetric damage: " .. name)
         local dependencies = {}
         for _, dependency in ipairs(damage[right].deps_cells or {}) do dependencies[dependency] = true end
         for _, dependency in ipairs(cell.deps_cells or {}) do
-            local mirrored = dependency:gsub("_L_", "_R_"):gsub("_L$", "_R"):gsub("_LEFT_", "_RIGHT_")
+            local mirrored = dependency:gsub("_L_", "_R_"):gsub("_L$", "_R"):gsub("LEFT_", "RIGHT_")
             assert(dependencies[mirrored], "Asymmetric dependency: " .. name)
         end
     end
 end
-assert(count == 30, "Expected 30 damage cells")
+assert(count == 40, "Expected 40 damage cells")
+for name in pairs(fragment_ids) do assert(fragments[name], "Missing droppable cell: " .. name) end
 for _, lod in ipairs(model.lods) do
-    assert(#read_binary("Shapes/" .. lod[1]) > 0, "Missing visual LOD")
+    local visual = read_binary("Shapes/" .. lod[1])
+    for argument, name in pairs(damage_arguments) do
+        assert(visual:find("KC390_DAMAGE_" .. argument .. "_", 1, true), "Missing visual damage control: " .. lod[1] .. " " .. name)
+    end
 end
-print("PASS: AI configuration, 45 HP, 30 physical damage cells, SFM, transport/tanker tasks, finite countermeasures and network arguments (" .. _VERSION .. ")")
+print("PASS: 20 HP, 40 physical/visual damage cells, four fragments, native wreck, SFM, transport/tanker tasks and network arguments (" .. _VERSION .. ")")
