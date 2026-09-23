@@ -3,6 +3,9 @@ local profile = assert(arg[2])
 local scenario = arg[3] or "Damage"
 local rendered = arg[4] == "Render"
 local wingSide = arg[5] == "Right" and 1 or -1
+local missileSystem = arg[6] or "Tor"
+local scriptRoot = (arg[0]:gsub("\\", "/")):match("^(.*)/")
+local cameraTarget
 local function serialize(value)
     if type(value) == "table" then
         local fields = {}
@@ -57,7 +60,30 @@ local function makeGroup(typeName, name, identifier, offset)
         route = { points = points },
     }
 end
-if scenario == "Wings" then
+if scenario == "Missile" then
+    for _, coalitionData in pairs(mission.coalition) do coalitionData.country = {} end
+    -- Batumi runway coordinates from the existing takeoff template are not
+    -- required: runtime resolves the native Airbase position for the launcher.
+    local group = makeGroup("KC-390", "MISSILE_KC390", 101, 0)
+    local control = makeGroup("KC-390", "CONTROL_KC390", 103, 40000)
+    -- Batumi parking reference verified in KC-390 Takeoff Test.miz (airbase 22).
+    assert(mission.theatre == "Caucasus", "Missile scenario requires Caucasus")
+    for _, aircraftGroup in ipairs({ group, control }) do
+        local unit = aircraftGroup.units[1]
+        local offset = aircraftGroup == control and 40000 or 0
+        unit.x, unit.y, unit.alt, unit.speed = -355990.9375 - 6500, 618136.9375 + offset, 1000, 140
+        unit.payload.flare, unit.payload.chaff = 0, 0
+        unit.livery_id = "FAB Standard"
+        aircraftGroup.x, aircraftGroup.y = unit.x, unit.y
+        for index, point in ipairs(aircraftGroup.route.points) do
+            point.x, point.y, point.alt, point.speed = unit.x + (index - 1) * 60000, unit.y, unit.alt, unit.speed
+        end
+    end
+    cameraTarget = group.units[1]
+    mission.coalition.blue.country = { { id = 2, name = "USA", plane = { group = { group, control } } } }
+    mission.start_time = 43200
+    for _, wind in pairs(mission.weather.wind) do wind.speed = 0 end
+elseif scenario == "Wings" then
     for _, coalitionData in pairs(mission.coalition) do coalitionData.country = {} end
     local group = makeGroup("KC-390", "WING_KC390", 101, 0)
     group.units[1].alt = 1500
@@ -222,7 +248,11 @@ timer.scheduleFunction(function()
     if not ok then env.error("KC390_AI_RESULT ERROR " .. tostring(failure)) end
 end, nil, timer.getTime() + 65)
 ]=]
-if scenario == "Wings" then
+if scenario == "Missile" then
+    local file = assert(io.open(scriptRoot .. "/missile_damage_test.lua", "rb"))
+    runtime = "local KC390_TEST_MISSILE = " .. string.format("%q", missileSystem) .. "\n" .. assert(file:read("*a"))
+    file:close()
+elseif scenario == "Wings" then
     runtime = "local side = " .. wingSide .. "\n" .. [=[
 if KC390_AI_RUNNING then return end
 KC390_AI_RUNNING = true
@@ -393,10 +423,11 @@ if rendered then
     options.difficulty.externalViews, options.difficulty.spectatorExternalViews = true, true
     options.difficulty.labels = 0
 end
-if scenario == "Wings" then options.graphics.width, options.graphics.height = 1280, 720 end
+if scenario == "Wings" or scenario == "Missile" then options.graphics.width, options.graphics.height = 1280, 720 end
 write(profile .. "/Config/options.lua", "options = " .. serialize(options))
-if scenario == "Wings" then
-    write(profile .. "/Scripts/Export.lua", [=[
+if scenario == "Wings" or scenario == "Missile" then
+    local cameraConfig = scenario == "Missile" and ("local reference = { x = " .. cameraTarget.x .. ", z = " .. cameraTarget.y .. " }\nlocal capturePrefix = 'missile-'\n") or "local reference = nil\nlocal capturePrefix = 'wing-'\n"
+    write(profile .. "/Scripts/Export.lua", cameraConfig .. [=[
 local targetId, lastPosition, started, nextCapture, samples = nil, nil, nil, 5, 0
 local function normalize(vector)
     local length = math.sqrt(vector.x^2 + vector.y^2 + vector.z^2)
@@ -406,11 +437,15 @@ function LuaExportAfterNextFrame()
     local current = LoGetModelTime()
     if not started then started = current end
     if not targetId then
+        local nearest = math.huge
         for identifier, object in pairs(LoGetWorldObjects() or {}) do
-            if object.Name == "KC-390" then targetId = identifier; break end
+            if object.Name == "KC-390" and object.Position then
+                local distance = reference and ((object.Position.x - reference.x)^2 + (object.Position.z - reference.z)^2) or 0
+                if distance < nearest then targetId, nearest = identifier, distance end
+            end
         end
     end
-    local target = targetId and LoGetObjectById(targetId)
+    local target = current - started < 19 and targetId and LoGetObjectById(targetId)
     if target and target.Position then lastPosition = target.Position end
     if not lastPosition then return end
     local position = { x = lastPosition.x - 38, y = lastPosition.y + 30, z = lastPosition.z - 43 }
@@ -424,13 +459,14 @@ function LuaExportAfterNextFrame()
         local error = math.sqrt((camera.p.x - position.x)^2 + (camera.p.y - position.y)^2 + (camera.p.z - position.z)^2)
         log.write("KC390_AI_CAMERA", log.INFO, string.format("time=%.2f target=%s error=%.4f samples=%d", current - started, tostring(targetId), error, samples))
         local request = io.open(lfs.writedir() .. "wing-capture.txt", "w")
-        if request then request:write("wing-" .. nextCapture); request:close() end
-        nextCapture = nextCapture + (nextCapture < 17 and 4 or 1)
+        local captureNumber = capturePrefix == 'missile-' and math.floor(nextCapture * 1000 + 0.5) or nextCapture
+        if request then request:write(capturePrefix .. captureNumber); request:close() end
+        nextCapture = nextCapture + (capturePrefix == 'missile-' and 0.5 or (nextCapture < 17 and 4 or 1))
     end
 end
 ]=])
 end
-local limit = scenario == "Takeoff" and 300 or scenario == "Fans" and 25 or scenario == "Wings" and 30 or 75
+local limit = scenario == "Takeoff" and 300 or scenario == "Fans" and 25 or scenario == "Wings" and 30 or scenario == "Missile" and 175 or 75
 write(profile .. "/Scripts/Hooks/kc390_ai_test.lua", "local runtime = " .. string.format("%q", runtime) .. "\nlocal limit = " .. limit .. "\n" .. [=[
 local callbacks, startedAt, injected = {}, nil, false
 local lastCheck = 0
@@ -446,7 +482,7 @@ function callbacks.onSimulationFrame()
     end
     if startedAt and DCS.getModelTime() - lastCheck > 1 then
         lastCheck = DCS.getModelTime()
-        local result = net.dostring_in("mission", "return tostring(c_getUserFlag('KC390_AI_DONE'))")
+        local result = net.dostring_in("mission", "return tostring(trigger.misc.getUserFlag('KC390_AI_DONE'))")
         if tonumber(result) == 1 then DCS.exitProcess() end
     end
     if startedAt and DCS.getModelTime() - startedAt > limit then DCS.exitProcess() end

@@ -78,7 +78,13 @@ Native simulator checks:
 .\tools\validate_ai.ps1 -Scenario Damage -Render
 .\tools\validate_ai.ps1 -Scenario Takeoff
 .\tools\validate_ai.ps1 -Scenario Fans
+.\tools\validate_ai.ps1 -Scenario Missile -MissileSystem Tor
+.\tools\validate_ai.ps1 -Scenario Missile -MissileSystem Strela10
 ```
+
+The `Missile` scenario uses native DCS AI missile launches, not scripted explosions. It requires an identified missile shot, an attributed hit on the KC-390, launcher ammunition consumption, subsequent target damage/loss, and an unattacked KC-390 retaining 20 HP and zero damage arguments while flying. The test aircraft alone carries no chaff/flares, so this checks damage rather than countermeasure effectiveness. Radar (`Tor`) and infrared (`Strela10`) cases run separately. Screenshots are observations requiring manual review; a physics PASS does not certify every fragment, all missile types, multiplayer or real-world survivability. The observer's six local positive/negative cases are in [tools/test_missile_observer.lua](tools/test_missile_observer.lua).
+
+The validator defaults to `bin-mt` and rejects native crash records even if DCS returns exit code zero. Camera positioning is limited to the initial interval before the launcher is armed; after that, native camera tracking is used. Only temporary-profile camera/capture scripts are created.
 
 The validator creates a temporary profile, uses local authentication files without displaying their contents, saves logs and a hash manifest under the system temporary directory, and removes the profile and authentication copies in `finally`. Damage and takeoff tests run without rendering unless `-Render` is specified. Rendered damage validation additionally requires a native damage-argument change after an impact and zero damage arguments on the unattacked aircraft. This is not a screenshot or debris-trajectory check. `Fans` always enables rendering: DCS does not update these visual arguments in headless mode. Normal options are checked for changes; only the test process is stopped. Existing DCS sessions block the test unless `-AllowParallelDcs` is explicitly supplied. Use `-DcsRoot` / `-NormalProfile` for non-default installations.
 
@@ -88,7 +94,9 @@ The [fan remapper](tools/animate_fans.py) updates only the four fan rotation rec
 
 Native fan control requires `propellorShapeType = "1ARG_2PHASE"` and the SFM `TurboFan` type with nominal fan/core RPM. The configured 5650/14950 RPM values are visual simulation approximations, not certified V2500-E5 performance data. The aerodynamic and thrust tables are unchanged.
 
-Current package, 2026-09-20: local Lua validation and the official DCS damage-table converter passed for 20 HP, 40 distinct native IDs, symmetric dependencies and four correctly indexed fragments. All four visual LODs parse completely, preserve original geometry/materials/flight animation records, and pass repeat-application checks. The collision export has 40 cells, 278 shells and 24,869 triangles; its source blend was not modified. Installation and byte-identical restoration passed in a disposable fixture. A running user DCS session blocked the new native test before launch, so the current 20-HP package has NOT yet been validated visually, in native flight or in multiplayer, and was NOT applied to the active installation during that session.
+Current package: 20 HP, 40 distinct native IDs, symmetric dependencies and four indexed fragments. The four visual LODs preserve geometry/materials/flight animation records and declare argument capacity through 408, including damage arguments 140-179. The collision export has 40 cells, 278 shells and 24,869 triangles; its source blend was not modified. The current models were installed in Saved Games on 2026-09-22.
+
+On 2026-09-23, two rendered native missile tests passed using the same aircraft files as the installed package: Tor/SA9M330 and Strela-10M3/SA9M333. Both recorded native missile launches, identified impacts, ammunition consumption and target loss, while an unattacked KC-390 retained 20 HP and zero damage arguments. Captures show an explosion and fragments for Tor, and front-section rupture followed by a burning fall and additional separation near ground contact for Strela. No scripted explosions or forced model arguments were used. DCS exited without detected crashes; normal options and source files were preserved, and temporary profiles/authentication copies were removed. See the [report and actual screenshots](tools/DamageValidation/2026-09-23/README.md). These cases do not certify every detachable part, every missile, multiplayer or countermeasure effectiveness.
 
 Historical baseline only: on 2026-09-13, the previous 45-HP/30-cell package passed native explosion, Vulcan, navigation and cold-start takeoff checks in DCS 2.9.29.27468. Those results do not certify the new damage package.
 

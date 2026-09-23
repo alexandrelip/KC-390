@@ -3,7 +3,8 @@ param(
     [string]$DcsRoot = 'D:\Program Files\DCS World',
     [ValidateSet('bin', 'bin-mt')][string]$DcsBin = 'bin-mt',
     [string]$NormalProfile = (Join-Path $env:USERPROFILE 'Saved Games\DCS'),
-    [ValidateSet('Damage', 'Takeoff', 'Fans', 'Wings')][string]$Scenario = 'Damage',
+    [ValidateSet('Damage', 'Takeoff', 'Fans', 'Wings', 'Missile')][string]$Scenario = 'Damage',
+    [ValidateSet('Tor', 'Strela10')][string]$MissileSystem = 'Tor',
     [ValidateSet('Left', 'Right')][string]$WingSide = 'Left',
     [switch]$AllowParallelDcs,
     [switch]$Render,
@@ -11,7 +12,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$useRendering = $Render -or $Scenario -in @('Fans', 'Wings')
+$useRendering = $Render -or $Scenario -in @('Fans', 'Wings', 'Missile')
 $root = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $lua = Join-Path $DcsRoot 'bin\luae.exe'
 & $lua (Join-Path $PSScriptRoot 'check_ai.lua') $root
@@ -30,6 +31,7 @@ $tracked = @('Entry\KC-390.lua', 'Entry\KC-390_SFM.lua', 'Shapes\KC-390.lods', '
 $tracked += @('Shapes\KC-390_NoseCone.edm', 'Shapes\KC-390_WingLeft.edm', 'Shapes\KC-390_WingRight.edm', 'Shapes\KC-390_CargoDoor.edm')
 $missionName = if ($Scenario -in @('Takeoff', 'Fans')) { 'KC-390 Takeoff Test.miz' } else { 'KC-390 AI Test.miz' }
 $tracked += @('tools\check_ai.lua', 'tools\prepare_ai_test.lua', 'tools\validate_ai.ps1', ('Missions\QuickStart\' + $missionName))
+if ($Scenario -eq 'Missile') { $tracked += 'tools\missile_damage_test.lua' }
 $sourceHashes = @{}
 foreach ($relative in $tracked) { $sourceHashes[$relative] = (Get-FileHash -LiteralPath (Join-Path $root $relative) -Algorithm SHA256).Hash }
 $process = $null
@@ -50,7 +52,7 @@ try {
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     [System.IO.Compression.ZipFile]::ExtractToDirectory((Join-Path $root ('Missions\QuickStart\' + $missionName)), (Join-Path $work 'staged'))
     $renderMode = if ($useRendering) { 'Render' } else { 'Headless' }
-    & $lua (Join-Path $PSScriptRoot 'prepare_ai_test.lua') $work $testProfile $Scenario $renderMode $WingSide
+    & $lua (Join-Path $PSScriptRoot 'prepare_ai_test.lua') $work $testProfile $Scenario $renderMode $WingSide $MissileSystem
     if ($LASTEXITCODE -ne 0) { throw 'Mission generation failed.' }
     $testMission = Join-Path $work 'AI-validation.miz'
     [System.IO.Compression.ZipFile]::CreateFromDirectory((Join-Path $work 'staged'), $testMission)
@@ -62,7 +64,7 @@ try {
     $startInfo.Arguments = '-w ' + $profileName + $renderArgument + ' --force_disable_VR --mission "' + $testMission + '"'
     $process = [System.Diagnostics.Process]::Start($startInfo)
     Write-Output ('Isolated DCS PID={0}; mode={1}; existing sessions untouched={2}' -f $process.Id, $renderMode, ($existing.Id -join ','))
-    if ($Scenario -eq 'Wings') {
+    if ($Scenario -in @('Wings', 'Missile')) {
         $captureDirectory = Join-Path $testProfile 'ScreenShots'
         [IO.Directory]::CreateDirectory($captureDirectory) | Out-Null
         $requestPath = Join-Path $testProfile 'wing-capture.txt'
@@ -72,7 +74,7 @@ try {
             if ($elapsed.Elapsed.TotalSeconds -ge $TimeoutSeconds) { $timedOut = $true; break }
             if (-not (Test-Path -LiteralPath $requestPath)) { continue }
             $request = (Get-Content -LiteralPath $requestPath -Raw).Trim()
-            if ($request -eq $lastCapture -or $request -notmatch '^wing-[0-9]+$') { continue }
+            if ($request -eq $lastCapture -or $request -notmatch '^(wing|missile)-[0-9]+$') { continue }
             & (Join-Path $PSScriptRoot 'livery_viewer.ps1') -Action Capture -ProcessId $process.Id -OutputPath (Join-Path $captureDirectory ($request + '.png'))
             $lastCapture = $request
         }
@@ -89,6 +91,10 @@ try {
     }
     $logPath = Join-Path $testProfile 'Logs\dcs.log'
     if (Test-Path -LiteralPath $logPath) { Copy-Item -LiteralPath $logPath -Destination (Join-Path $work 'dcs.log') }
+    $logsDirectory = Join-Path $testProfile 'Logs'
+    if (Test-Path -LiteralPath $logsDirectory) {
+        Get-ChildItem -LiteralPath $logsDirectory -File | Where-Object { $_.Extension -in @('.crash', '.dmp') } | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $work }
+    }
     $screenshots = Join-Path $testProfile 'ScreenShots'
     if (Test-Path -LiteralPath $screenshots) { Copy-Item -LiteralPath $screenshots -Destination (Join-Path $work 'ScreenShots') -Recurse }
     if ($createdProfile) {
@@ -102,7 +108,7 @@ try {
     }
     $profileRemoved = -not (Test-Path -LiteralPath $testProfile)
     $preservation = @{ NormalOptionsUnchanged = $optionsUnchanged; SourceUnchanged = $sourceUnchanged; TemporaryProfileAndAuthRemoved = $profileRemoved }
-    @{ Preservation = $preservation; SourceHashes = $sourceHashes; Profile = $testProfile; TimedOut = $timedOut; ExitCode = $exitCode; ExecutableDirectory = $DcsBin; Scenario = $Scenario; WingSide = $WingSide } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $work 'manifest.json') -Encoding UTF8
+    @{ Preservation = $preservation; SourceHashes = $sourceHashes; Profile = $testProfile; TimedOut = $timedOut; ExitCode = $exitCode; ExecutableDirectory = $DcsBin; Scenario = $Scenario; WingSide = $WingSide; MissileSystem = $MissileSystem } | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $work 'manifest.json') -Encoding UTF8
     $preservation | ConvertTo-Json
     Write-Output ('Evidence: {0}' -f $work)
     if (-not ($optionsUnchanged -and $sourceUnchanged -and $profileRemoved)) { throw 'Preservation check failed. Inspect the evidence; no unrelated files were restored.' }
