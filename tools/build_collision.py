@@ -9,6 +9,9 @@ from pathlib import Path
 import bpy
 from mathutils import Matrix, Vector
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_damage import DAMAGE_IDS, damage_cell
+
 
 ANIMATION_ARGUMENTS = {
     "c_gear": 0, "r_gear": 3, "l_gear": 5,
@@ -28,45 +31,6 @@ ANIMATION_ARGUMENTS = {
     "l_tire_blurred_key": 103, "l_tire_still_key": 103,
 }
 DCS_TRANSFORM = Matrix(((0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0, 0, 0, 1)))
-
-
-def damage_cell(material, name, position):
-    material = material.lower()
-    name = name.lower()
-    forward, height, lateral = position
-    side = "L" if lateral < 0 else "R"
-    if "light" in name or "blur" in name or "antena" in name:
-        return None
-    if material.startswith("kc-390_gear_"):
-        return "WHEEL_F" if material.endswith("nose") else "WHEEL_" + side
-    if "rudder" in name:
-        return "RUDDER"
-    if material == "kc-390_elevator":
-        return "ELEVATOR_" + side
-    if material == "kc-390_horiz_stabiliser":
-        return "STABILIZER_" + side + "_OUT"
-    if material.startswith("kc-390_wing"):
-        if "aileron" in material:
-            return "AILERON_" + side
-        if "flap" in material:
-            return "FLAP_" + side + ("_IN" if abs(lateral) < 7 else "_OUT")
-        section = "IN" if abs(lateral) < 6 else "CENTER" if abs(lateral) < 13.5 else "OUT"
-        return "WING_" + side + "_" + section
-    if material.startswith("iae") or material == "kc-390_iae novo":
-        return "ENGINE_" + side
-    if material.startswith("kc-390_fuselage") or material == "kc-390_glass":
-        if material == "kc-390_fuselage g":
-            return "TAIL_BOTTOM"
-        if forward > 10:
-            return "NOSE_CENTER"
-        if forward > 7 and height > -1:
-            return "COCKPIT"
-        if forward < -16:
-            return "TAIL"
-        if forward < -11:
-            return "TAIL_LEFT_SIDE" if side == "L" else "TAIL_RIGHT_SIDE"
-        return "FUSELAGE_LEFT_SIDE" if side == "L" else "FUSELAGE_RIGHT_SIDE"
-    return None
 
 
 def prepare_animations():
@@ -128,8 +92,13 @@ def build_collision(output):
         if obj.type != "MESH" or not obj.data.polygons:
             continue
         world_matrix = DCS_TRANSFORM @ obj.matrix_world
+        ancestry, ancestor = [], obj
+        while ancestor is not None:
+            ancestry.append(ancestor.name)
+            ancestor = ancestor.parent
+        lineage = "/".join(ancestry)
         material_names = [slot.material.name if slot.material else "" for slot in obj.material_slots]
-        if not any(damage_cell(name, obj.name, world_matrix.translation) for name in material_names):
+        if not any(damage_cell(name, lineage, world_matrix.translation) for name in material_names):
             continue
         obj.data.calc_loop_triangles()
         triangle_count = len(obj.data.loop_triangles)
@@ -156,7 +125,7 @@ def build_collision(output):
                 if (vertices[1] - vertices[0]).cross(vertices[2] - vertices[0]).length_squared < 1e-14:
                     continue
                 centroid = world_matrix @ ((vertices[0] + vertices[1] + vertices[2]) / 3)
-                cell = damage_cell(material_names[triangle.material_index], obj.name, centroid)
+                cell = damage_cell(material_names[triangle.material_index], lineage, centroid)
                 if cell:
                     groups[cell].extend(vertices)
             for cell, vertices in groups.items():
@@ -172,9 +141,7 @@ def build_collision(output):
                 shell_count += 1
         finally:
             evaluated.to_mesh_clear()
-    required = {"NOSE_CENTER", "COCKPIT", "FUSELAGE_LEFT_SIDE", "FUSELAGE_RIGHT_SIDE", "ENGINE_L", "ENGINE_R", "TAIL", "RUDDER"}
-    assert required.issubset(cells), sorted(required.difference(cells))
-    assert len(cells) >= 25, cells
+    assert set(cells) == set(DAMAGE_IDS), sorted(set(DAMAGE_IDS).difference(cells))
     assert sum(cells.values()) < 25000, "Collision triangle budget exceeded"
     minimum = [min(vertex[axis] for vertex in bounds) for axis in range(3)]
     maximum = [max(vertex[axis] for vertex in bounds) for axis in range(3)]

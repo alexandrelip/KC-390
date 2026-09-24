@@ -2,6 +2,10 @@ local work = assert(arg[1])
 local profile = assert(arg[2])
 local scenario = arg[3] or "Damage"
 local rendered = arg[4] == "Render"
+local wingSide = arg[5] == "Right" and 1 or -1
+local missileSystem = arg[6] or "Tor"
+local scriptRoot = (arg[0]:gsub("\\", "/")):match("^(.*)/")
+local cameraTarget
 local function serialize(value)
     if type(value) == "table" then
         local fields = {}
@@ -56,7 +60,38 @@ local function makeGroup(typeName, name, identifier, offset)
         route = { points = points },
     }
 end
-if scenario == "Damage" then
+if scenario == "Missile" then
+    for _, coalitionData in pairs(mission.coalition) do coalitionData.country = {} end
+    -- Batumi runway coordinates from the existing takeoff template are not
+    -- required: runtime resolves the native Airbase position for the launcher.
+    local group = makeGroup("KC-390", "MISSILE_KC390", 101, 0)
+    local control = makeGroup("KC-390", "CONTROL_KC390", 103, 40000)
+    -- Batumi parking reference verified in KC-390 Takeoff Test.miz (airbase 22).
+    assert(mission.theatre == "Caucasus", "Missile scenario requires Caucasus")
+    for _, aircraftGroup in ipairs({ group, control }) do
+        local unit = aircraftGroup.units[1]
+        local offset = aircraftGroup == control and 40000 or 0
+        unit.x, unit.y, unit.alt, unit.speed = -355990.9375 - 6500, 618136.9375 + offset, 1000, 140
+        unit.payload.flare, unit.payload.chaff = 0, 0
+        unit.livery_id = "FAB Standard"
+        aircraftGroup.x, aircraftGroup.y = unit.x, unit.y
+        for index, point in ipairs(aircraftGroup.route.points) do
+            point.x, point.y, point.alt, point.speed = unit.x + (index - 1) * 60000, unit.y, unit.alt, unit.speed
+        end
+    end
+    cameraTarget = group.units[1]
+    mission.coalition.blue.country = { { id = 2, name = "USA", plane = { group = { group, control } } } }
+    mission.start_time = 43200
+    for _, wind in pairs(mission.weather.wind) do wind.speed = 0 end
+elseif scenario == "Wings" then
+    for _, coalitionData in pairs(mission.coalition) do coalitionData.country = {} end
+    local group = makeGroup("KC-390", "WING_KC390", 101, 0)
+    group.units[1].alt = 1500
+    for _, point in ipairs(group.route.points) do point.alt = 1500 end
+    mission.coalition.blue.country = { { id = 2, name = "USA", plane = { group = { group } } } }
+    mission.start_time = 43200
+    for _, wind in pairs(mission.weather.wind) do wind.speed = 0 end
+elseif scenario == "Damage" then
     for _, coalitionData in pairs(mission.coalition) do coalitionData.country = {} end
     mission.coalition.blue.country = {
         { id = 2, name = "USA", plane = { group = {
@@ -88,12 +123,29 @@ KC390_AI_RUNNING = true
 env.info("KC390_AI_START")
 local blast_pass = false
 local hits = 0
+local visual_damage, visual_peak = {}, 0
 local flight = assert(Unit.getByName("AI_KC390"))
 local flight_start, fuel_start = flight:getPoint(), flight:getFuel()
 local function life(name)
     local unit = Unit.getByName(name)
     return unit and unit:isExist() and unit:getLife() or 0
 end
+timer.scheduleFunction(function(_, currentTime)
+    for _, name in ipairs({ "HP_KC390", "GUN_KC390" }) do
+        local unit = Unit.getByName(name)
+        if unit and unit:isExist() then
+            for argument = 140, 179 do
+                local value = unit:getDrawArgumentValue(argument)
+                if value and value > (visual_damage[name .. argument] or 0) + 0.0001 then
+                    visual_damage[name .. argument] = value
+                    visual_peak = math.max(visual_peak, value)
+                    env.info(string.format("KC390_AI_DAMAGE_ARG name=%s arg=%d value=%.6f", name, argument, value))
+                end
+            end
+        end
+    end
+    if currentTime < 70 then return currentTime + 0.1 end
+end, nil, timer.getTime() + 0.1)
 world.addEventHandler({ onEvent = function(_, event)
     if event.id == world.event.S_EVENT_HIT and event.target then
         local valid, name = pcall(event.target.getName, event.target)
@@ -152,7 +204,10 @@ local powers, stage = { 1, 5, 25, 100 }, 0
 timer.scheduleFunction(function(_, currentTime)
     local ok, failure = pcall(function()
         for _, name in ipairs(names) do
-            if stage == 0 then baseline[name] = life(name); assert(baseline[name] == 45, name .. " initial HP") end
+            if stage == 0 then
+                baseline[name] = life(name)
+                assert(baseline[name] == (name == "HP_C130" and 45 or 20), name .. " initial HP")
+            end
             env.info(string.format("KC390_AI_HP stage=%d name=%s life=%.6f initial=%.6f", stage, name, life(name), baseline[name]))
         end
         if stage == #powers then
@@ -178,17 +233,69 @@ timer.scheduleFunction(function()
         assert(flight:isExist(), "Navigation control aircraft disappeared")
         local current = flight:getPoint()
         local distance = math.sqrt((current.x - flight_start.x)^2 + (current.z - flight_start.z)^2)
-        local navigation = flight:inAir() and flight:getLife() == 45 and distance > 3000 and flight:getFuel() < fuel_start
-        local gun_pass = hits > 0 and life("GUN_KC390") < 45 and ammunition() < ammo_start
+        local navigation = flight:inAir() and flight:getLife() == 20 and distance > 3000 and flight:getFuel() < fuel_start
+        local gun_pass = hits > 0 and life("GUN_KC390") < 20 and ammunition() < ammo_start
+        for argument = 140, 179 do
+            assert(flight:getDrawArgumentValue(argument) == 0, "Undamaged aircraft has a damage argument: " .. argument)
+        end
+        local visual_pass = not require_visual_damage or visual_peak > 0
         env.info(string.format("KC390_AI_FLIGHT distance=%.1f life=%.3f fuel_start=%.6f fuel_end=%.6f result=%s", distance, flight:getLife(), fuel_start, flight:getFuel(), navigation and "PASS" or "FAIL"))
         env.info(string.format("KC390_AI_GUN hits=%d life=%.3f ammo_start=%d ammo_end=%d result=%s", hits, life("GUN_KC390"), ammo_start, ammunition(), gun_pass and "PASS" or "FAIL"))
-        env.info("KC390_AI_RESULT " .. (blast_pass and navigation and gun_pass and "PASS" or "FAIL"))
+        env.info(string.format("KC390_AI_VISUAL_ARGUMENTS required=%s peak=%.6f result=%s", tostring(require_visual_damage), visual_peak, visual_pass and "PASS" or "FAIL"))
+        env.info("KC390_AI_RESULT " .. (blast_pass and navigation and gun_pass and visual_pass and "PASS" or "FAIL"))
         trigger.action.setUserFlag("KC390_AI_DONE", 1)
     end)
     if not ok then env.error("KC390_AI_RESULT ERROR " .. tostring(failure)) end
 end, nil, timer.getTime() + 65)
 ]=]
-if scenario == "Takeoff" then
+if scenario == "Missile" then
+    local file = assert(io.open(scriptRoot .. "/missile_damage_test.lua", "rb"))
+    runtime = "local KC390_TEST_MISSILE = " .. string.format("%q", missileSystem) .. "\n" .. assert(file:read("*a"))
+    file:close()
+elseif scenario == "Wings" then
+    runtime = "local side = " .. wingSide .. "\n" .. [=[
+if KC390_AI_RUNNING then return end
+KC390_AI_RUNNING = true
+local started, stage, sample = timer.getTime(), 1, 0
+local unit = assert(Unit.getByName("WING_KC390"))
+local blasts = { {12, 1}, {20, 5}, {28, 25}, {36, 100} }
+local arguments = { 150, 151, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165 }
+env.info("KC390_AI_START wings side=" .. side .. " id=" .. unit:getID())
+timer.scheduleFunction(function(_, currentTime)
+    local ok, failure = pcall(function()
+        local elapsed = currentTime - started
+        sample = sample + 1
+        if sample % 10 == 1 and unit:isExist() then
+            local values = {}
+            for _, argument in ipairs(arguments) do
+                local valid, value = pcall(unit.getDrawArgumentValue, unit, argument)
+                values[#values + 1] = argument .. "=" .. (valid and tostring(value) or "unavailable")
+            end
+            local valid, life = pcall(unit.getLife, unit)
+            env.info(string.format("KC390_AI_WING_STATE time=%.2f exists=%s life=%s args=%s", elapsed, tostring(unit:isExist()), valid and tostring(life) or "unavailable", table.concat(values, ",")))
+        end
+        if blasts[stage] and elapsed >= blasts[stage][1] then
+            if unit:isExist() then
+                local transform = unit:getPosition()
+                local point = {}
+                for _, axis in ipairs({ "x", "y", "z" }) do
+                    point[axis] = transform.p[axis] - 2 * transform.x[axis] + 1.1 * transform.y[axis] + side * 4.5 * transform.z[axis]
+                end
+                env.info(string.format("KC390_AI_WING_BLAST stage=%d power=%.1f", stage, blasts[stage][2]))
+                trigger.action.explosion(point, blasts[stage][2])
+            end
+            stage = stage + 1
+        end
+        if elapsed >= 26 then
+            env.info("KC390_AI_RESULT OBSERVED")
+            trigger.action.setUserFlag("KC390_AI_DONE", 1)
+        end
+    end)
+    if not ok then env.error("KC390_AI_RESULT ERROR " .. tostring(failure)); trigger.action.setUserFlag("KC390_AI_DONE", 1); return end
+    if currentTime - started < 26 then return currentTime + 0.1 end
+end, nil, timer.getTime() + 0.1)
+]=]
+elseif scenario == "Takeoff" then
     runtime = "local name = " .. string.format("%q", prototype.name) .. "\n" .. [=[
 if KC390_AI_RUNNING then return end
 KC390_AI_RUNNING = true
@@ -199,7 +306,7 @@ local sample = 0
 timer.scheduleFunction(function(_, currentTime)
     local ok, finished = pcall(function()
         local unit = assert(Unit.getByName(name), "Takeoff aircraft disappeared")
-        assert(unit:isExist() and unit:getLife() == 45, "Ground collision or damage during takeoff")
+        assert(unit:isExist() and unit:getLife() == 20, "Ground collision or damage during takeoff")
         local point = unit:getPoint()
         local velocity = unit:getVelocity()
         local speed = math.sqrt(velocity.x^2 + velocity.y^2 + velocity.z^2)
@@ -240,7 +347,7 @@ timer.scheduleFunction(function(_, currentTime)
         for _, name in ipairs(names) do
             local unit = assert(Unit.getByName(name), "Fan test aircraft disappeared")
             assert(unit:isExist() and unit:getLife() > 0, "Unexpected fan test aircraft damage")
-            if name ~= "FAN_NATIVE" then assert(unit:getLife() == 45, "Unexpected KC-390 damage") end
+            if name ~= "FAN_NATIVE" then assert(unit:getLife() == 20, "Unexpected KC-390 damage") end
             assert(unit:inAir() == (name ~= "FAN_COLD"), "Unexpected fan test aircraft state")
             for _, argument in ipairs(arguments) do
                 local value = unit:getDrawArgumentValue(argument)
@@ -288,6 +395,7 @@ timer.scheduleFunction(function(_, currentTime)
 end, nil, timer.getTime() + 0.073)
 ]=]
 end
+if scenario == "Damage" then runtime = "local require_visual_damage = " .. tostring(rendered) .. "\n" .. runtime end
 assert(loadstring(runtime))
 mission.trigrules = { {
     comment = "KC390 AI validation", eventlist = "", predicate = "triggerStart", rules = {},
@@ -315,8 +423,50 @@ if rendered then
     options.difficulty.externalViews, options.difficulty.spectatorExternalViews = true, true
     options.difficulty.labels = 0
 end
+if scenario == "Wings" or scenario == "Missile" then options.graphics.width, options.graphics.height = 1280, 720 end
 write(profile .. "/Config/options.lua", "options = " .. serialize(options))
-local limit = scenario == "Takeoff" and 300 or scenario == "Fans" and 25 or 75
+if scenario == "Wings" or scenario == "Missile" then
+    local cameraConfig = scenario == "Missile" and ("local reference = { x = " .. cameraTarget.x .. ", z = " .. cameraTarget.y .. " }\nlocal capturePrefix = 'missile-'\n") or "local reference = nil\nlocal capturePrefix = 'wing-'\n"
+    write(profile .. "/Scripts/Export.lua", cameraConfig .. [=[
+local targetId, lastPosition, started, nextCapture, samples = nil, nil, nil, 5, 0
+local function normalize(vector)
+    local length = math.sqrt(vector.x^2 + vector.y^2 + vector.z^2)
+    return { x = vector.x / length, y = vector.y / length, z = vector.z / length }
+end
+function LuaExportAfterNextFrame()
+    local current = LoGetModelTime()
+    if not started then started = current end
+    if not targetId then
+        local nearest = math.huge
+        for identifier, object in pairs(LoGetWorldObjects() or {}) do
+            if object.Name == "KC-390" and object.Position then
+                local distance = reference and ((object.Position.x - reference.x)^2 + (object.Position.z - reference.z)^2) or 0
+                if distance < nearest then targetId, nearest = identifier, distance end
+            end
+        end
+    end
+    local target = current - started < 19 and targetId and LoGetObjectById(targetId)
+    if target and target.Position then lastPosition = target.Position end
+    if not lastPosition then return end
+    local position = { x = lastPosition.x - 38, y = lastPosition.y + 30, z = lastPosition.z - 43 }
+    local forward = normalize({ x = lastPosition.x - 5 - position.x, y = lastPosition.y - position.y, z = lastPosition.z - position.z })
+    local right = normalize({ x = -forward.z, y = 0, z = forward.x })
+    local up = { x = right.y * forward.z - right.z * forward.y, y = right.z * forward.x - right.x * forward.z, z = right.x * forward.y - right.y * forward.x }
+    if current - started < 19 then LoSetCameraPosition({ p = position, x = forward, y = up, z = right }) end
+    samples = samples + 1
+    if current - started >= nextCapture then
+        local camera = LoGetCameraPosition()
+        local error = math.sqrt((camera.p.x - position.x)^2 + (camera.p.y - position.y)^2 + (camera.p.z - position.z)^2)
+        log.write("KC390_AI_CAMERA", log.INFO, string.format("time=%.2f target=%s error=%.4f samples=%d", current - started, tostring(targetId), error, samples))
+        local request = io.open(lfs.writedir() .. "wing-capture.txt", "w")
+        local captureNumber = capturePrefix == 'missile-' and math.floor(nextCapture * 1000 + 0.5) or nextCapture
+        if request then request:write(capturePrefix .. captureNumber); request:close() end
+        nextCapture = nextCapture + (capturePrefix == 'missile-' and 0.5 or (nextCapture < 17 and 4 or 1))
+    end
+end
+]=])
+end
+local limit = scenario == "Takeoff" and 300 or scenario == "Fans" and 25 or scenario == "Wings" and 30 or scenario == "Missile" and 175 or 75
 write(profile .. "/Scripts/Hooks/kc390_ai_test.lua", "local runtime = " .. string.format("%q", runtime) .. "\nlocal limit = " .. limit .. "\n" .. [=[
 local callbacks, startedAt, injected = {}, nil, false
 local lastCheck = 0
@@ -332,8 +482,8 @@ function callbacks.onSimulationFrame()
     end
     if startedAt and DCS.getModelTime() - lastCheck > 1 then
         lastCheck = DCS.getModelTime()
-        local result = net.dostring_in("mission", "return tostring(c_getUserFlag('KC390_AI_DONE'))")
-        if result == "1" then DCS.exitProcess() end
+        local result = net.dostring_in("mission", "return tostring(trigger.misc.getUserFlag('KC390_AI_DONE'))")
+        if tonumber(result) == 1 then DCS.exitProcess() end
     end
     if startedAt and DCS.getModelTime() - startedAt > limit then DCS.exitProcess() end
 end
