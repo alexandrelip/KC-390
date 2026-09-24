@@ -46,4 +46,37 @@ REABASTECIMENTO EM VOO
 42  mangueira/cesta esquerda: 0 recolhida, 1 estendida
 71  mangueira/cesta direita: 0 recolhida, 1 estendida
 
-Total no EDM final: 24 argumentos, 211 trilhas ArgBased e 905 chaves.
+DANO VISUAL
+0 no argumento de dano = parte intacta; 1 = parte destruida/oculta.
+Os argumentos abaixo sao separados dos 24 argumentos de movimento.
+
+140 nariz central                 141 lateral esquerda do nariz
+142 lateral direita do nariz      143 cockpit
+144 cabine esquerda               145 cabine direita
+146 piso da cabine                147 estrutura do trem dianteiro
+148 fuselagem esquerda            149 fuselagem direita
+150 motor esquerdo                151 motor direito
+152 estrutura do trem esquerdo    153 estrutura do trem direito
+154 ponta de asa esquerda         155 ponta de asa direita
+156 aileron esquerdo              157 aileron direito
+158 centro de asa esquerda        159 centro de asa direita
+160 flap externo esquerdo         161 flap externo direito
+162 raiz de asa esquerda          163 raiz de asa direita
+164 flap interno esquerdo         165 flap interno direito
+166 estabilizador esquerdo        167 estabilizador direito
+168 profundor esquerdo            169 profundor direito
+170 leme                          171 cauda
+172 lateral esquerda da cauda     173 lateral direita da cauda
+174 rampa/porta de carga           175 parte inferior da fuselagem
+176 roda dianteira                177 rodas esquerdas
+178 rodas direitas                179 parte superior da cauda
+
+No ModelViewer2, definir um argumento nao aciona deps_cells do Lua.
+Para simular a asa esquerda inteira ausente: 150,154,156,158,160,162,164 = 1.
+Para simular a asa direita inteira ausente: 151,155,157,159,161,163,165 = 1.
+Nariz completo ausente: 140,141,142 = 1. Rampa ausente: 174 = 1.
+No DCS essas dependencias sao declaradas na tabela Damage.
+
+Total: 24 argumentos de movimento e 40 de dano nos quatro LODs.
+As 211 trilhas de movimento e 905 chaves originais foram preservadas.
+Validacao visual em DCS/ModelViewer e multiplayer ainda pendente para o pacote de dano.

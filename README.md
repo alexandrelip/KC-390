@@ -1,6 +1,8 @@
 # DCS World Embraer KC-390 Millennium
 
 > Free, open-source **AI-only KC-390 Millennium** independent module for DCS World.
+>
+> **Development note:** Project under development for playable SFM and, in the future, EFM.
 
 ---
 
@@ -21,8 +23,10 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 
 - AI-only transport aircraft (`add_aircraft`), no DLL required (SFM in Lua)
 - AI tasks: `Transport` and `Refueling` (2 tanker points)
-- Damage configuration: 45 base HP, matching the stock DCS C-130, and 30 finite component damage cells
+- Damage configuration: 20 base HP, matching the Hercules 6.8.2 mod, and 40 distinct native component damage cells
 - Dedicated animated collision geometry for the fuselage, engines, wings, tail, controls and landing gear
+- Forty damage arguments (140-179) in every visual LOD, with component visibility removed at complete damage
+- KC-390 nose, left wing, right wing and cargo-ramp fragments, plus the native C-130 final wreck used by Hercules
 - RWR, an editable load of 60 chaff / 60 flares, four dispenser positions and component fire positions
 - Landing gear, control surfaces, ramp/doors, mirrors and animated refueling hoses/baskets (24 animation args)
 - Continuous engine fan rotation driven by native DCS arguments 407/408 in all four visual LODs
@@ -32,7 +36,9 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 
 HP, component thresholds, countermeasure capacity and dispenser/fire positions are simulator approximations, not certified real-world specifications. Aircraft tasks and defensive reactions use the native DCS AI and Mission Editor options. There is no custom cockpit, offensive targeting sensor or external flight-model DLL. Existing missions retain the countermeasure quantities saved in their payloads; set a nonzero load in the Mission Editor to equip them.
 
-The physical model is generated from the original geometry without replacing the visual LODs or textures. Destruction is functional, but separate broken-wing and wreck models are not included.
+Damage geometry and fragments come from the KC-390 itself; no Hercules model or texture is copied. The visual builder preserves all original triangles, vertex positions, normals, UVs, materials, flight animations and refueling connectors, changing only damage grouping and adding visibility controls. Each fragment uses the aircraft's original coordinates and a frozen neutral pose. There are no newly painted scorch textures or modeled fracture interiors. The final wreck references the installed DCS asset `C-130-oblomok`, not a custom KC-390 wreck.
+
+The configuration follows the Hercules feature set, not its asymmetric thresholds or alias collisions. Left/right component thresholds remain symmetric, all 40 cells have explicit finite thresholds, and the KC-390 retains two engines and its existing SFM.
 
 ---
 
@@ -50,33 +56,14 @@ The physical model is generated from the original geometry without replacing the
 2. Start DCS World; the KC-390 Millennium will appear in the Encyclopedia / Mission Editor as an AI-only unit.
 3. Use it as `Transport` or `Refueling` (tanker) in the Mission Editor.
 
-## Validation
-
-Local configuration check with DCS Lua 5.1, from the mod directory:
+To update an existing local installation with this damage package, close DCS, its updater and ModelViewer2, then run:
 
 ```powershell
-& 'D:\Program Files\DCS World\bin\luae.exe' .\tools\check_ai.lua .
+.\tools\Install-Damage.ps1 -WhatIf
+.\tools\Install-Damage.ps1
 ```
 
-Native simulator checks:
-
-```powershell
-.\tools\validate_ai.ps1 -Scenario Damage
-.\tools\validate_ai.ps1 -Scenario Takeoff
-.\tools\validate_ai.ps1 -Scenario Fans
-```
-
-The validator creates a temporary profile, uses local authentication files without displaying their contents, saves logs and a hash manifest under the system temporary directory, and removes the profile and authentication copies in `finally`. Damage and takeoff tests run without rendering unless `-Render` is specified. `Fans` always enables rendering: DCS does not update these visual arguments in headless mode. Normal options are checked for changes; only the test process is stopped. Existing DCS sessions block the test unless `-AllowParallelDcs` is explicitly supplied. Use `-DcsRoot` / `-NormalProfile` for non-default installations.
-
-The `Fans` scenario compares a flying aircraft against an uncontrolled cold parking aircraft in zero wind and a stock KC-135 reference. It requires sustained changes across arguments 407/408 in four successive intervals, at least 80% of the reference's update count, and no changes with the engines stopped. It also logs legacy arguments 21/22 to distinguish the original incorrect mapping. This is an argument-level test, not a visual certification.
-
-The [fan remapper](tools/animate_fans.py) updates only the four fan rotation records in each visual EDM: native arguments 407/408, with a complete turn in each phase (-1 to 0 for slow rotation, 0 to 1 for fast rotation). Run it with `--importer` pointing to the installed `dcs_edm_importer` directory, `--source` pointing to `Shapes`, and `--output` pointing to a new staging directory. It checks complete parsing, closed full turns, unchanged geometry/materials/connectors, preservation of every byte outside the four rotation records, and idempotence before writing staged models and a hash manifest. The current correction adds 480 bytes per LOD and never overwrites the original files. Future visual exports must retain 407/408 and both phases. The collision-only builder is unaffected.
-
-Native fan control requires `propellorShapeType = "1ARG_2PHASE"` and the SFM `TurboFan` type with nominal fan/core RPM. The configured 5650/14950 RPM values are visual simulation approximations, not certified V2500-E5 performance data. The aerodynamic and thrust tables are unchanged.
-
-Verified in DCS 2.9.29.27468 on 2026-09-13: both the KC-390 and stock C-130 started at 45 HP, small explosions reduced HP and subsequent damage destroyed them; native Vulcan rounds registered hits and destroyed the KC-390. An unattacked aircraft flew 11 km, consumed fuel and retained full HP. A separate cold parking start completed taxi and takeoff with 45 HP and retracted gear. These were headless physics tests, not visual or multiplayer certifications; flare effectiveness, new fire visuals and multiplayer replication have not been separately verified.
-
-The collision builder is [tools/build_collision.py](tools/build_collision.py). Run it with Blender 5.1 and the official `io_scene_edm` exporter, passing `--source`, `--addon`, `--report` and `--output` after Blender's `--` separator. It verifies that the source blend is unchanged and exports a separate collision EDM; it does not save over the source scene.
+The installer changes only the aircraft definition, nine damage-related models and the two documentation files. It checks hashes, saves a backup under `%LOCALAPPDATA%\KC390-Damage\Backups`, and never changes textures, liveries, SFM or normal DCS settings. Use `-Destination` for a different existing installation. To restore the backup path printed by the installer, run `.\tools\Install-Damage.ps1 -RestoreBackup '<backup path>'`; restoration refuses to overwrite later modifications.
 
 ---
 
