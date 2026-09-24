@@ -1,6 +1,8 @@
 # DCS World Embraer KC-390 Millennium
 
 > Free, open-source **AI-only KC-390 Millennium** independent module for DCS World.
+>
+> **Development note:** Project under development for playable SFM and, in the future, EFM.
 
 ---
 
