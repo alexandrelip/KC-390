@@ -65,47 +65,6 @@ To update an existing local installation with this damage package, close DCS, it
 
 The installer changes only the aircraft definition, nine damage-related models and the two documentation files. It checks hashes, saves a backup under `%LOCALAPPDATA%\KC390-Damage\Backups`, and never changes textures, liveries, SFM or normal DCS settings. Use `-Destination` for a different existing installation. To restore the backup path printed by the installer, run `.\tools\Install-Damage.ps1 -RestoreBackup '<backup path>'`; restoration refuses to overwrite later modifications.
 
-## Validation
-
-Local configuration check with DCS Lua 5.1, from the mod directory:
-
-```powershell
-& 'D:\Program Files\DCS World\bin\luae.exe' .\tools\check_ai.lua .
-```
-
-Native simulator checks:
-
-```powershell
-.\tools\validate_ai.ps1 -Scenario Damage
-.\tools\validate_ai.ps1 -Scenario Damage -Render
-.\tools\validate_ai.ps1 -Scenario Takeoff
-.\tools\validate_ai.ps1 -Scenario Fans
-.\tools\validate_ai.ps1 -Scenario Missile -MissileSystem Tor
-.\tools\validate_ai.ps1 -Scenario Missile -MissileSystem Strela10
-```
-
-The `Missile` scenario uses native DCS AI missile launches, not scripted explosions. It requires an identified missile shot, an attributed hit on the KC-390, launcher ammunition consumption, subsequent target damage/loss, and an unattacked KC-390 retaining 20 HP and zero damage arguments while flying. The test aircraft alone carries no chaff/flares, so this checks damage rather than countermeasure effectiveness. Radar (`Tor`) and infrared (`Strela10`) cases run separately. Screenshots are observations requiring manual review; a physics PASS does not certify every fragment, all missile types, multiplayer or real-world survivability. The observer's six local positive/negative cases are in [tools/test_missile_observer.lua](tools/test_missile_observer.lua).
-
-The validator defaults to `bin-mt` and rejects native crash records even if DCS returns exit code zero. Camera positioning is limited to the initial interval before the launcher is armed; after that, native camera tracking is used. Only temporary-profile camera/capture scripts are created.
-
-The validator creates a temporary profile, uses local authentication files without displaying their contents, saves logs and a hash manifest under the system temporary directory, and removes the profile and authentication copies in `finally`. Damage and takeoff tests run without rendering unless `-Render` is specified. Rendered damage validation additionally requires a native damage-argument change after an impact and zero damage arguments on the unattacked aircraft. This is not a screenshot or debris-trajectory check. `Fans` always enables rendering: DCS does not update these visual arguments in headless mode. Normal options are checked for changes; only the test process is stopped. Existing DCS sessions block the test unless `-AllowParallelDcs` is explicitly supplied. Use `-DcsRoot` / `-NormalProfile` for non-default installations.
-
-The `Fans` scenario compares a flying aircraft against an uncontrolled cold parking aircraft in zero wind and a stock KC-135 reference. It requires sustained changes across arguments 407/408 in four successive intervals, at least 80% of the reference's update count, and no changes with the engines stopped. It also logs legacy arguments 21/22 to distinguish the original incorrect mapping. This is an argument-level test, not a visual certification.
-
-The [fan remapper](tools/animate_fans.py) updates only the four fan rotation records in each visual EDM: native arguments 407/408, with a complete turn in each phase (-1 to 0 for slow rotation, 0 to 1 for fast rotation). Run it with `--importer` pointing to the installed `dcs_edm_importer` directory, `--source` pointing to `Shapes`, and `--output` pointing to a new staging directory. It checks complete parsing, closed full turns, unchanged geometry/materials/connectors, preservation of every byte outside the four rotation records, and idempotence before writing staged models and a hash manifest. The current correction adds 480 bytes per LOD and never overwrites the original files. Future visual exports must retain 407/408 and both phases. The collision-only builder is unaffected.
-
-Native fan control requires `propellorShapeType = "1ARG_2PHASE"` and the SFM `TurboFan` type with nominal fan/core RPM. The configured 5650/14950 RPM values are visual simulation approximations, not certified V2500-E5 performance data. The aerodynamic and thrust tables are unchanged.
-
-Current package: 20 HP, 40 distinct native IDs, symmetric dependencies and four indexed fragments. The four visual LODs preserve geometry/materials/flight animation records and declare argument capacity through 408, including damage arguments 140-179. The collision export has 40 cells, 278 shells and 24,869 triangles; its source blend was not modified. The current models were installed in Saved Games on 2026-09-22.
-
-On 2026-09-23, two rendered native missile tests passed using the same aircraft files as the installed package: Tor/SA9M330 and Strela-10M3/SA9M333. Both recorded native missile launches, identified impacts, ammunition consumption and target loss, while an unattacked KC-390 retained 20 HP and zero damage arguments. Captures show an explosion and fragments for Tor, and front-section rupture followed by a burning fall and additional separation near ground contact for Strela. No scripted explosions or forced model arguments were used. DCS exited without detected crashes; normal options and source files were preserved, and temporary profiles/authentication copies were removed. See the [report and actual screenshots](tools/DamageValidation/2026-09-23/README.md). These cases do not certify every detachable part, every missile, multiplayer or countermeasure effectiveness.
-
-Historical baseline only: on 2026-09-13, the previous 45-HP/30-cell package passed native explosion, Vulcan, navigation and cold-start takeoff checks in DCS 2.9.29.27468. Those results do not certify the new damage package.
-
-The collision builder is [tools/build_collision.py](tools/build_collision.py). Run it with Blender 5.1 and the official `io_scene_edm` exporter, passing `--source`, `--addon`, `--report` and `--output` after Blender's `--` separator. It verifies that the source blend is unchanged and exports a separate collision EDM; it does not save over the source scene.
-
-The visual/fragment builder is [tools/build_damage.py](tools/build_damage.py). Run with Blender 5.1 and `--importer <dcs_edm_importer> --source <intact Shapes snapshot> --output <new staging directory> --report <new JSON path>`. It shares the cell classifier with the collision builder. Rebuild from the intact pre-damage snapshot, not the already partitioned models, and retain the source hash manifest. The updated files must be deployed together with their matching aircraft definition. The fan remapper remains a pre-damage pipeline step.
-
 ---
 
 ## 🤝 Contributors
