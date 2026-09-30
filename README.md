@@ -1,5 +1,7 @@
 # DCS World Embraer KC-390 Millennium
 
+![Embraer KC-390 Millennium em voo](Encyclopedia/Plane/KC-390.png)
+
 > Free, open-source **AI-only KC-390 Millennium** independent module for DCS World.
 >
 > **Development note:** Project under development for playable SFM and, in the future, EFM.
@@ -13,6 +15,7 @@ This is a free, open-source **AI-only KC-390 Millennium** module for DCS World. 
 The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-390 (FABv / Vynicius) using ModelConverterX + 3ds Max, with permission from the original author.
 
 ### Licensing
+
 - **Lua systems** — freely usable in other **non-paid** DCS World modules
 - The original 3D model/textures are freeware from FABv / Vynicius "VS Mod" (MSFS); used here with the author's permission. Redistribution should preserve original credit.
 - ⚠️ **This is a closed/restricted license**: any modification, redistribution, or derivative work (model, textures, code or assets) **requires prior written permission from the group of contributors** listed below. Do not fork, repackage, or alter this mod without asking first.
@@ -23,10 +26,10 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 
 - AI-only transport aircraft (`add_aircraft`), no DLL required (SFM in Lua)
 - AI tasks: `Transport` and `Refueling` (2 tanker points)
-- Damage configuration: 20 base HP, matching the Hercules 6.8.2 mod, and 40 distinct native component damage cells
+- Damage configuration: 20 base HP and 40 distinct native component damage cells
 - Dedicated animated collision geometry for the fuselage, engines, wings, tail, controls and landing gear
 - Forty damage arguments (140-179) in every visual LOD, with component visibility removed at complete damage
-- KC-390 nose, left wing, right wing and cargo-ramp fragments, plus the native C-130 final wreck used by Hercules
+- KC-390 nose, left wing, right wing and cargo-ramp fragments, plus the native DCS C-130 final wreck
 - RWR, an editable load of 60 chaff / 60 flares, four dispenser positions and component fire positions
 - Landing gear, control surfaces, ramp/doors, mirrors and animated refueling hoses/baskets (24 animation args)
 - Continuous engine fan rotation driven by native DCS arguments 407/408 in all four visual LODs
@@ -36,17 +39,17 @@ The 3D model and animations were converted from the freeware MSFS "VS Mod" KC-39
 
 HP, component thresholds, countermeasure capacity and dispenser/fire positions are simulator approximations, not certified real-world specifications. Aircraft tasks and defensive reactions use the native DCS AI and Mission Editor options. There is no custom cockpit, offensive targeting sensor or external flight-model DLL. Existing missions retain the countermeasure quantities saved in their payloads; set a nonzero load in the Mission Editor to equip them.
 
-Damage geometry and fragments come from the KC-390 itself; no Hercules model or texture is copied. The visual builder preserves all original triangles, vertex positions, normals, UVs, materials, flight animations and refueling connectors, changing only damage grouping and adding visibility controls. Each fragment uses the aircraft's original coordinates and a frozen neutral pose. There are no newly painted scorch textures or modeled fracture interiors. The final wreck references the installed DCS asset `C-130-oblomok`, not a custom KC-390 wreck.
+Damage geometry and fragments come from the KC-390 itself. The visual builder preserves all original triangles, vertex positions, normals, UVs, materials, flight animations and refueling connectors, changing only damage grouping and adding visibility controls. Each fragment uses the aircraft's original coordinates and a frozen neutral pose. There are no newly painted scorch textures or modeled fracture interiors. The final wreck references the installed DCS asset `C-130-oblomok`, not a custom KC-390 wreck.
 
-The configuration follows the Hercules feature set, not its asymmetric thresholds or alias collisions. Left/right component thresholds remain symmetric, all 40 cells have explicit finite thresholds, and the KC-390 retains two engines and its existing SFM.
+Left/right component thresholds remain symmetric, all 40 cells have explicit finite thresholds, and the KC-390 retains two engines and its existing SFM.
 
 ---
 
 ## Compatibility
 
-| DCS Version | KC-390 Millennium |
-|---|---|
-| Recent DCS World (2.9.x) | Supported |
+| DCS Version              | KC-390 Millennium |
+|--------------------------|-------------------|
+| Recent DCS World (2.9.x) | Supported         |
 
 ---
 
