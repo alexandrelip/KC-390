@@ -71,6 +71,7 @@ The installer changes only the aircraft definition, nine damage-related models a
 ---
 
 ## 🤝 Contributors
+[](https://github.com/alexandrelip/KC-390/tree/main#-contributors)
 
 **Core development & DCS conversion / Desenvolvimento principal e conversão para DCS**: alexandrelip
 
@@ -80,17 +81,16 @@ The installer changes only the aircraft definition, nine damage-related models a
 
 And everyone in the community who reported bugs, provided feedback, and helped shape this project. ❤️
 
-E a todos da comunidade que relataram bugs, forneceram feedback e ajudaram a moldar este projeto. ❤️
-
 ---
 
 ## 📜 License
+[](https://github.com/alexandrelip/KC-390/tree/main#-license)
 
 This project is shared with the DCS World modding community under the following terms:
 
 - **Lua-based aircraft systems** — freely usable in other **non-paid** DCS World modules
 - The original 3D model and textures are based on the freeware MSFS **KC-390 "VS Mod"** by FABv / Vynicius, converted and adapted with the author's permission. Livery and texture contributions belong to their respective authors.
-- 🔒 **Permission required for changes**: this is a restricted license. **Any change, modification, or redistribution of this mod requires explicit prior permission from the contributor group** (see [Contributors](#-contributors)). Unauthorized forks/reuploads/edits are not permitted.
+- 🔒 **Permission required for changes**: this is a restricted license. **Any change, modification, or redistribution of this mod requires explicit prior permission from the contributor group** (see [Contributors](https://github.com/alexandrelip/KC-390/tree/main#-contributors)). Unauthorized forks/reuploads/edits are not permitted.
 
 ---
 
@@ -99,11 +99,12 @@ This project is shared with the DCS World modding community under the following 
 ⚠️ **Licença restrita**: qualquer alteração, modificação ou redistribuição deste mod (modelo, texturas, código ou demais assets) **exige permissão prévia do grupo de colaboradores** listado abaixo. Não é permitido fork, republicação ou edição sem autorização.
 
 ### 🤝 Colaboradores
+[](https://github.com/alexandrelip/KC-390/tree/main#-colaboradores)
 
 **Desenvolvimento principal & conversão para DCS**: alexandrelip
 
 **Modelo 3D / texturas originais (MSFS "VS Mod", freeware)**: vynicius (FABv)
 
-**Suporte, testes e feedback**: suak007, carlos, denis, Filipe, Giovanny
+**Suporte, testes e feedback**: suak007, denis, Filipe, Giovanny
 
 E todos na comunidade que reportaram bugs, deram feedback e ajudaram a moldar este projeto. ❤️
