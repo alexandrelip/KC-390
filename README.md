@@ -80,7 +80,7 @@ The installer changes only the aircraft definition, nine damage-related models a
 
 And everyone in the community who reported bugs, provided feedback, and helped shape this project. ❤️
 
-E a todos da comunidade que relataram bugs, deram feedback e ajudaram a moldar este projeto. ❤️
+E a todos da comunidade que relataram bugs, forneceram feedback e ajudaram a moldar este projeto. ❤️
 
 ---
 
