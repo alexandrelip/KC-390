@@ -72,13 +72,15 @@ The installer changes only the aircraft definition, nine damage-related models a
 
 ## 🤝 Contributors
 
-**Core development & DCS conversion**: alexandrelip
+**Core development & DCS conversion / Desenvolvimento principal e conversão para DCS**: alexandrelip
 
-**Original 3D model / textures (MSFS "VS Mod", freeware)**: vynicius (FABv)
+**Original 3D model (MSFS "VS Mod", freeware) / Modelo 3D original (MSFS "VS Mod", gratuito)**: vynicius (FABv)
 
-**Support, testing & feedback**: suak007, carlos, denis, Filipe, Giovanny
+**Support, textures, testing & feedback / Suporte, texturas, testes e feedback**: suak007, denis, Filipe
 
 And everyone in the community who reported bugs, provided feedback, and helped shape this project. ❤️
+
+E a todos da comunidade que relataram bugs, deram feedback e ajudaram a moldar este projeto. ❤️
 
 ---
 
